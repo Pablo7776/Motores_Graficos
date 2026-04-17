@@ -6,7 +6,7 @@
 
 ## 🚀 Tecnologías usadas
 
-- Godot
+- Godot 4.6.2
 
 ---
 
@@ -14,8 +14,34 @@
 
 - Pablo Durán
 - Lucas Traverso
-- Damian Cordoba
+- Damian Córdoba
 - María Luján Hernández
-- Rocio Lujan Santos
+- Rocío Luján Santos
+
+---
+
+## 📝 Convención de commits
+
+Usar el siguiente formato:
+
+```bash
+tipo: descripción breve
+```
+
+### Tipos permitidos
+
+- `feat` → nueva funcionalidad
+- `fix` → corrección de errores
+- `refactor` → reorganización interna
+- `docs` → cambios en documentación
+- `style` → cambios visuales o formato
+
+### Ejemplos
+
+```bash
+feat: crear escena principal
+fix: corregir colisión del jugador
+refactor: reorganizar scripts del menú
+```
 
 ---
