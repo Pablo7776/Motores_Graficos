@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Da2_zafarrancho"
+run/main_scene="uid://31btwctqt2r4"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [physics]
 
