@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://svv7cvakpgha" path="res://icon.svg" id="1_i15ls"]
 [ext_resource type="Script" uid="uid://c0uofwdfjv136" path="res://modulos/personajes/personaje_base.gd" id="1_wi8ml"]
 [ext_resource type="Texture2D" uid="uid://bujcn4ih5eyly" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Idle.png" id="3_ypddg"]
+[ext_resource type="Texture2D" uid="uid://bwmjcg1ny2v07" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Up_Attack.png" id="4_kjutj"]
 [ext_resource type="Texture2D" uid="uid://deugiteevt02k" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Run.png" id="4_sed10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i15ls"]
@@ -55,6 +56,18 @@ region = Rect2(1920, 0, 320, 320)
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8ga5"]
 atlas = ExtResource("3_ypddg")
 region = Rect2(2240, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb3y6"]
+atlas = ExtResource("4_kjutj")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7r78"]
+atlas = ExtResource("4_kjutj")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k66jq"]
+atlas = ExtResource("4_kjutj")
+region = Rect2(640, 0, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lt4l4"]
 atlas = ExtResource("4_sed10")
@@ -125,6 +138,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hb3y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7r78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k66jq")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lt4l4")
 }, {
 "duration": 1.0,
@@ -160,5 +187,5 @@ shape = SubResource("RectangleShape2D_i15ls")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1608774696]
 sprite_frames = SubResource("SpriteFrames_lt4l4")
-animation = &"Run"
-frame_progress = 0.31862816
+animation = &"Idle"
+frame_progress = 0.8083824

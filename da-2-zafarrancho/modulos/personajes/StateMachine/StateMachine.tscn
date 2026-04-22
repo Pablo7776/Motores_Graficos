@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cfrugvdsa3axp"]
+
+[ext_resource type="Script" uid="uid://crvle26nmn00p" path="res://modulos/personajes/StateMachine/state_machine.gd" id="1_odcu4"]
+[ext_resource type="Script" uid="uid://bk3qnycwcyv3v" path="res://modulos/personajes/StateMachine/idle_state.gd" id="2_eq471"]
+[ext_resource type="Script" uid="uid://bc1b84smgcyfk" path="res://modulos/personajes/StateMachine/run_state.gd" id="3_iqays"]
+[ext_resource type="Script" uid="uid://dxfujqk3jle7o" path="res://modulos/personajes/StateMachine/jump_state.gd" id="4_3guae"]
+
+[node name="StateMachine" type="Node" unique_id=1018205208]
+script = ExtResource("1_odcu4")
+
+[node name="IdleState" type="Node" parent="." unique_id=130740372]
+script = ExtResource("2_eq471")
+
+[node name="RunState" type="Node" parent="." unique_id=409168999]
+script = ExtResource("3_iqays")
+
+[node name="JumpState" type="Node" parent="." unique_id=231567495]
+script = ExtResource("4_3guae")
