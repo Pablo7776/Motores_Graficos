@@ -29,6 +29,7 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 			#Acá se agrega al grupo del jugador j
 			nuevo_pj.add_to_group("pjs_jugador_%d" %(j+1))
 			#Necesitamos estas dos variables en el pj jugador_id e indice_en_equipo
+			#Acá me parece que estoy rompiendo el encapsulamiento del pj, pero no estoy seguro
 			nuevo_pj.jugador_id = j
 			nuevo_pj.indice_en_equipo = p
 			#Acá se agrega a la lista de pjs
