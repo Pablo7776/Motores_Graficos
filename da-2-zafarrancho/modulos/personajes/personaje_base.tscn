@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://svv7cvakpgha" path="res://icon.svg" id="1_i15ls"]
 [ext_resource type="Script" uid="uid://c0uofwdfjv136" path="res://modulos/personajes/personaje_base.gd" id="1_wi8ml"]
 [ext_resource type="Texture2D" uid="uid://bujcn4ih5eyly" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Idle.png" id="3_ypddg"]
+[ext_resource type="Texture2D" uid="uid://deugiteevt02k" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Run.png" id="4_sed10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i15ls"]
 size = Vector2(59.5, 74)
@@ -55,6 +56,30 @@ region = Rect2(1920, 0, 320, 320)
 atlas = ExtResource("3_ypddg")
 region = Rect2(2240, 0, 320, 320)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt4l4"]
+atlas = ExtResource("4_sed10")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnfy2"]
+atlas = ExtResource("4_sed10")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh2jb"]
+atlas = ExtResource("4_sed10")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mo7m"]
+atlas = ExtResource("4_sed10")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k55p8"]
+atlas = ExtResource("4_sed10")
+region = Rect2(1280, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kgu4"]
+atlas = ExtResource("4_sed10")
+region = Rect2(1600, 0, 320, 320)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_lt4l4"]
 animations = [{
 "frames": [{
@@ -98,10 +123,28 @@ animations = [{
 "name": &"Idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt4l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnfy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh2jb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mo7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k55p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kgu4")
+}],
 "loop": true,
-"name": &"new_animation",
-"speed": 5.0
+"name": &"Run",
+"speed": 9.0
 }]
 
 [node name="PersonajeBase" type="CharacterBody2D" unique_id=1880926583]
@@ -117,5 +160,5 @@ shape = SubResource("RectangleShape2D_i15ls")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1608774696]
 sprite_frames = SubResource("SpriteFrames_lt4l4")
-animation = &"Idle"
-frame_progress = 0.8204839
+animation = &"Run"
+frame_progress = 0.31862816
