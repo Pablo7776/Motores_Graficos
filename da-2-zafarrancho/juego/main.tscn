@@ -11,4 +11,4 @@ script = ExtResource("1_itpfl")
 position = Vector2(309, 284)
 
 [node name="Escenario" parent="." unique_id=1811008819 instance=ExtResource("3_wpyno")]
-position = Vector2(0, 572)
+position = Vector2(590, 572)

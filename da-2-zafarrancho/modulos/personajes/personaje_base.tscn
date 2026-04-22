@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://canl8j7cm4psw"]
 
 [ext_resource type="Texture2D" uid="uid://svv7cvakpgha" path="res://icon.svg" id="1_i15ls"]
+[ext_resource type="Script" uid="uid://c0uofwdfjv136" path="res://modulos/personajes/personaje_base.gd" id="1_wi8ml"]
 
-[node name="PersonajeBase" type="Node2D" unique_id=992633112]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i15ls"]
+size = Vector2(129, 123)
+
+[node name="PersonajeBase" type="CharacterBody2D" unique_id=1880926583]
+script = ExtResource("1_wi8ml")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=783236758]
 texture = ExtResource("1_i15ls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1188156936]
+position = Vector2(2.5, 0.5)
+shape = SubResource("RectangleShape2D_i15ls")
