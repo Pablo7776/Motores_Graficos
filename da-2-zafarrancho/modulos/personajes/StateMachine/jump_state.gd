@@ -1,9 +1,7 @@
 extends State
 
 func enter(player):
-	print("SALTOOO")
 	player.play_animation("Jump")
-	print("SALTOOO")
  
 func update(player, delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
