@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bo1fftyagbmjd"]
+
+[ext_resource type="Script" uid="uid://g1ije3dijwip" path="res://Scripts/mapa.gd" id="1_4q4qw"]
+[ext_resource type="Texture2D" uid="uid://cwdrvmpmlgi5t" path="res://Escenas/pngwing.com.png" id="2_07kl4"]
+[ext_resource type="Script" uid="uid://bc71naaeht5lk" path="res://Scripts/colision.gd" id="3_wp4uw"]
+
+[node name="mapa" type="Node" unique_id=889226769]
+script = ExtResource("1_4q4qw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1781149386]
+texture = ExtResource("2_07kl4")
+centered = false
+
+[node name="colision" type="Node" parent="." unique_id=764264613]
+script = ExtResource("3_wp4uw")
