@@ -3,12 +3,16 @@
 [ext_resource type="Script" uid="uid://bd8vekjx3u65n" path="res://juego/main.gd" id="1_itpfl"]
 [ext_resource type="PackedScene" uid="uid://canl8j7cm4psw" path="res://modulos/personajes/personaje_base.tscn" id="2_5h5rq"]
 [ext_resource type="PackedScene" uid="uid://cjx5m6v6e4cab" path="res://modulos/escenario/escenario.tscn" id="3_wpyno"]
+[ext_resource type="PackedScene" uid="uid://dnvdn8e7tarvj" path="res://Escenas/gestor_de_turnos.tscn" id="4_wpyno"]
 
 [node name="Main" type="Node2D" unique_id=2115022120]
 script = ExtResource("1_itpfl")
 
 [node name="PersonajeBase" parent="." unique_id=992633112 instance=ExtResource("2_5h5rq")]
+visible = false
 position = Vector2(309, 284)
 
 [node name="Escenario" parent="." unique_id=1811008819 instance=ExtResource("3_wpyno")]
 position = Vector2(590, 572)
+
+[node name="GestorDeTurnos" parent="." unique_id=32084317 instance=ExtResource("4_wpyno")]
