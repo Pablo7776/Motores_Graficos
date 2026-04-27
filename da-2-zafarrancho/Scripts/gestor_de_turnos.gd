@@ -27,7 +27,8 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 		for p in range(cantidad_de_pj_por_jugador):
 			var nuevo_pj = personaje.instantiate()
 			#Acá habría que agregarlo a la escena de nivel ¿O esto lo haría el propio pj al construirlo?
-			#get_parent().add_child(nuevo_pj)
+			nuevo_pj.position = Vector2(j * 200, p * 100)
+			get_parent().add_child(nuevo_pj)
 			#Acá se agrega al grupo del jugador j
 			nuevo_pj.add_to_group("pjs_jugador_%d" %(j+1))
 			#Necesitamos estas dos variables en el pj jugador_id e indice_en_equipo
