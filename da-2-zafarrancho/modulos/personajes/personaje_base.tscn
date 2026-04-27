@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bwmjcg1ny2v07" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Up_Attack.png" id="4_kjutj"]
 [ext_resource type="Texture2D" uid="uid://deugiteevt02k" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Run.png" id="4_sed10"]
 [ext_resource type="PackedScene" uid="uid://cfrugvdsa3axp" path="res://modulos/personajes/StateMachine/StateMachine.tscn" id="6_hhlp6"]
+[ext_resource type="PackedScene" uid="uid://0jnxrsdc43aq" path="res://modulos/componentes/HealthManager.tscn" id="7_hhlp6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i15ls"]
 size = Vector2(59.5, 74)
@@ -192,3 +193,7 @@ animation = &"Idle"
 frame_progress = 0.8083824
 
 [node name="StateMachine" parent="." unique_id=1018205208 instance=ExtResource("6_hhlp6")]
+
+[node name="HealthManager" parent="." unique_id=71149430 instance=ExtResource("7_hhlp6")]
+max_health = 5
+inmportality = true

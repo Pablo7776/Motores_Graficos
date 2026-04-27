@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://0jnxrsdc43aq"]
+
+[ext_resource type="Script" uid="uid://cek7a75og158v" path="res://modulos/componentes/health_manager.gd" id="1_wwtwu"]
+
+[node name="HealthManager" type="Node" unique_id=71149430]
+script = ExtResource("1_wwtwu")
