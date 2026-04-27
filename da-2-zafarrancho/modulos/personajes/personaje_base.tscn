@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://deugiteevt02k" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Run.png" id="4_sed10"]
 [ext_resource type="PackedScene" uid="uid://cfrugvdsa3axp" path="res://modulos/personajes/StateMachine/StateMachine.tscn" id="6_hhlp6"]
 [ext_resource type="PackedScene" uid="uid://0jnxrsdc43aq" path="res://modulos/componentes/HealthManager.tscn" id="7_hhlp6"]
+[ext_resource type="Script" uid="uid://0ybyq556upi1" path="res://modulos/personajes/label.gd" id="8_6ayea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i15ls"]
 size = Vector2(59.5, 74)
@@ -197,3 +198,10 @@ frame_progress = 0.8083824
 [node name="HealthManager" parent="." unique_id=71149430 instance=ExtResource("7_hhlp6")]
 max_health = 5
 inmportality = true
+
+[node name="Label" type="Label" parent="." unique_id=459889086]
+offset_left = -8.0
+offset_top = -63.0
+offset_right = 32.0
+offset_bottom = -40.0
+script = ExtResource("8_6ayea")
