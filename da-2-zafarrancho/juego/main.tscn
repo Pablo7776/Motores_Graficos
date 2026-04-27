@@ -16,3 +16,5 @@ position = Vector2(309, 284)
 position = Vector2(590, 572)
 
 [node name="GestorDeTurnos" parent="." unique_id=32084317 instance=ExtResource("4_wpyno")]
+cantidad_de_jugadores = 2
+cantidad_de_pj_por_jugador = 2

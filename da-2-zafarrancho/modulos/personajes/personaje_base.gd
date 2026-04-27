@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -400.0
 @onready var anim = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
 
+var jugador_id
+var indice_en_equipo
 
 func _ready():
 	state_machine.init(self)

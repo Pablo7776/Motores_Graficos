@@ -1,5 +1,7 @@
 extends Control
 
+signal iniciar
+
 @onready var main_buttons    : VBoxContainer = $MainButtons
 @onready var opciones        : Panel         = $Opciones
 @onready var master_slider   : HSlider       = $Opciones/CenterContainer/VBox/RowMaster/MasterSlider
@@ -19,6 +21,7 @@ func _ready():
 #Botones del menú
 
 func _on_iniciar_pressed() -> void:
+	iniciar.emit()
 	get_tree().change_scene_to_file("res://juego/main.tscn")
 
 func _on_ajustes_pressed() -> void:

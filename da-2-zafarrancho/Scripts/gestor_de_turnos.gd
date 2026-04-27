@@ -10,8 +10,10 @@ signal cambiar_turno(pj, turno_actual)
 
 func _ready() -> void:
 # Acá conecta una señal que se envía al apretar "iniciar partida" desde el menú de partida donde se establecen la cantida de jugadores y de personajes por jugador.
-	var partida = get_node("MenuDePartida")
-	partida.iniciar.connect(_on_menu_de_partida_iniciar)
+	#var partida = get_parent()
+	#partida.iniciar.connect(_on_menu_de_partida_iniciar)
+	#_on_menu_de_partida_iniciar(2, 2) 
+	get_parent().iniciar.connect(_on_menu_de_partida_iniciar)
 
 #Acá se crean los grupos de pjs para cada jugador y se crea la lista de turnos
 func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
