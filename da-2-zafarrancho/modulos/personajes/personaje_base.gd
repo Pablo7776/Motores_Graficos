@@ -13,12 +13,11 @@ var indice_en_equipo
 func _ready():
 	state_machine.init(self)
 
+
 func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
 	if pj == self:
 		print("Es mi turno", self)
 		set_physics_process(true)
-		if Input.is_action_just_pressed("ui_cancel"):
-			$"../GestorDeTurnos".siguiente_turno()
 	else:
 		set_physics_process(false)
 		print("no es mi turno", self)
@@ -38,4 +37,7 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 
 	state_machine.update(delta)
+	#Esto hace que se termine el turno
+	if Input.is_action_just_pressed("ui_cancel"):
+			$"../GestorDeTurnos".siguiente_turno()
 	move_and_slide()
