@@ -1,7 +1,7 @@
 extends State
- #✨Armado en Clase
+#✨Armado en Clase
 func enter(player):
-	player.player_animation("Idle")
+	player.play_animation("Idle")
 	player.set_process(false)
 	player.set_physics_process(false)
 

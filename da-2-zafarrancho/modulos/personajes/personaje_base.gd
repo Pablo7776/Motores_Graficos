@@ -16,7 +16,11 @@ func _ready():
 func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
 	if pj == self:
 		print("Es mi turno", self)
+		set_physics_process(true)
+		if Input.is_action_just_pressed("ui_cancel"):
+			$"../GestorDeTurnos".siguiente_turno()
 	else:
+		set_physics_process(false)
 		print("no es mi turno", self)
 """
 	if pj.jugador_id == jugador_id:
