@@ -38,6 +38,7 @@ func _physics_process(delta):
 
 	state_machine.update(delta)
 	#Esto hace que se termine el turno
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
+			state_machine.change_state(state_machine.idle_state)
 			$"../GestorDeTurnos".siguiente_turno()
 	move_and_slide()
