@@ -6,6 +6,7 @@ var current_state
 @onready var idle_state = $IdleState
 @onready var run_state = $RunState
 @onready var jump_state = $JumpState
+@onready var fuera_de_turno = $FueraDeTurno  #✨Armado en Clase
 
 func init(owner):
 	player = owner

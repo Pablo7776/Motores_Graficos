@@ -13,7 +13,7 @@ func _ready() -> void:
 	#var partida = get_parent()
 	#partida.iniciar.connect(_on_menu_de_partida_iniciar)
 	#_on_menu_de_partida_iniciar(2, 2) 
-	get_parent().iniciar.connect(_on_menu_de_partida_iniciar)
+	get_parent().iniciar.connect(_on_menu_de_partida_iniciar)  #✨Armado en Clase
 
 #Acá se crean los grupos de pjs para cada jugador y se crea la lista de turnos
 func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
@@ -29,6 +29,7 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 			#Acá habría que agregarlo a la escena de nivel ¿O esto lo haría el propio pj al construirlo?
 			nuevo_pj.position = Vector2(j * 200, p * 100)
 			get_parent().add_child(nuevo_pj)
+			cambiar_turno.connect(nuevo_pj._on_cambiar_turno)  #✨Armado en Clase
 			#Acá se agrega al grupo del jugador j
 			nuevo_pj.add_to_group("pjs_jugador_%d" %(j+1))
 			#Necesitamos estas dos variables en el pj jugador_id e indice_en_equipo

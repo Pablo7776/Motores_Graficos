@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bk3qnycwcyv3v" path="res://modulos/personajes/StateMachine/idle_state.gd" id="2_eq471"]
 [ext_resource type="Script" uid="uid://bc1b84smgcyfk" path="res://modulos/personajes/StateMachine/run_state.gd" id="3_iqays"]
 [ext_resource type="Script" uid="uid://dxfujqk3jle7o" path="res://modulos/personajes/StateMachine/jump_state.gd" id="4_3guae"]
+[ext_resource type="Script" uid="uid://bgmupsgbayqec" path="res://modulos/personajes/StateMachine/fuera_de_turno.gd" id="5_gkfw2"]
 
 [node name="StateMachine" type="Node" unique_id=1018205208]
 script = ExtResource("1_odcu4")
@@ -16,3 +17,6 @@ script = ExtResource("3_iqays")
 
 [node name="JumpState" type="Node" parent="." unique_id=231567495]
 script = ExtResource("4_3guae")
+
+[node name="FueraDeTurno" type="Node" parent="." unique_id=1600971924]
+script = ExtResource("5_gkfw2")

@@ -13,6 +13,17 @@ var indice_en_equipo
 func _ready():
 	state_machine.init(self)
 
+func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
+	if pj == self:
+		print("Es mi turno", self)
+	else:
+		print("no es mi turno", self)
+"""
+	if pj.jugador_id == jugador_id:
+		print("Es el turno de:", jugador_id, indice_en_equipo)
+	if not pj.jugador_id == jugador_id:
+		state_machine.fuera_de_turno
+"""
 
 func play_animation(anim_name):
 	anim.play(anim_name)
