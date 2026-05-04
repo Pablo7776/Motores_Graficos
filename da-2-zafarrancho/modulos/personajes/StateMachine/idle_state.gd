@@ -5,7 +5,12 @@ func enter(player):
 
 func update(player, delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
-
+	# Esto te saca de tu turno
+	"""
+	if Input.is_action_just_pressed("ui_cancel"):
+		print("ando")
+		player.state_machine.change_state(player.state_machine.fuera_de_turno)
+	"""
 	if direction != 0:
 		player.state_machine.change_state(player.state_machine.run_state)
 

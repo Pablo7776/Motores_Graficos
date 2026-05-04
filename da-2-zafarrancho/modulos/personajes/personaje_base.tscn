@@ -178,6 +178,7 @@ animations = [{
 }]
 
 [node name="PersonajeBase" type="CharacterBody2D" unique_id=1880926583]
+position = Vector2(400, 400)
 script = ExtResource("1_wi8ml")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=783236758]
