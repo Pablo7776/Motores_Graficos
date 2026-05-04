@@ -7,10 +7,10 @@ signal dead
 
 @export var max_health: int : set = set_max_health, get = get_max_health
 #De esta forma exporto la variable como parametro modificable mediante el inspector y lo modifico como nodo hijo desde la escena del PJ a quien se lo instancie 
-@export var inmportality: bool = false : set = set_inmortality, get = get_inmortality
+@export var inmortality: bool = false : set = set_inmortality, get = get_inmortality
 #Con esta variable le doy un x tiempo de inmortalidad al PJ cuando aparece (No creo que sea necesariio en el juego pero lo dejo pinchado para probar), haciendolo bool lo transformo en un parametro de on/off en el inspector
 
-var inmportality_timer: Timer = null #El timer para contar los segundo de importalidad en el momento del spawn 
+var inmortality_timer: Timer = null #El timer para contar los segundo de importalidad en el momento del spawn 
 
 @onready var health: int = max_health : set = set_health, get = get_health
 
@@ -32,28 +32,28 @@ func get_max_health() -> int:
 	return max_health
 
 func set_inmortality(value: bool):
-	inmportality = value
+	inmortality = value
 
 func get_inmortality() -> bool:
-	return inmportality
+	return inmortality
 
-func set_temporary_inmportality(timer: float):
-	if inmportality_timer == null:
-		inmportality_timer = Timer.new()
-		inmportality_timer.one_shot = true
-		add_child(inmportality_timer)
+func set_temporary_inmortality(timer: float):
+	if inmortality_timer == null:
+		inmortality_timer = Timer.new()
+		inmortality_timer.one_shot = true
+		add_child(inmortality_timer)
 	
-	if inmportality_timer.timeout.is_connected(set_inmortality):
-		inmportality_timer.timeout.disconnect(set_inmortality) #Esto lo que hace es desconectar la inmortalidad cuando el tiempo se termina
+	if inmortality_timer.timeout.is_connected(set_inmortality):
+		inmortality_timer.timeout.disconnect(set_inmortality) #Esto lo que hace es desconectar la inmortalidad cuando el tiempo se termina
 	
-	inmportality_timer.timer.set_wait_time(timer) 
+	inmortality_timer.timer.set_wait_time(timer) 
 	#Hasta aca crea el temporizador de inmortalidad y establese el tiempo
-	inmportality_timer.timeout.connect(set_inmortality.bind(false)) #Conecta la señal de tiempo de espera a la función de configuración de inmortalidad
-	inmportality = true #Este parametro se modifica cuando el tiempo termina y se establece el parametro de la linea de arriba
-	inmportality_timer.start()
+	inmortality_timer.timeout.connect(set_inmortality.bind(false)) #Conecta la señal de tiempo de espera a la función de configuración de inmortalidad
+	inmortality = true #Este parametro se modifica cuando el tiempo termina y se establece el parametro de la linea de arriba
+	inmortality_timer.start()
 
 func set_health(value: int):
-	if value < health and inmportality:
+	if value < health and inmortality:
 		return
 	
 	var clamped_value = clampi(value, 0, max_health) #Clampi es un metodo que sirve para fijar que una variable no baje de un minimo ni supere un max determinado

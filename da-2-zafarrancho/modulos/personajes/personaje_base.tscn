@@ -197,7 +197,6 @@ frame_progress = 0.8083824
 
 [node name="HealthManager" parent="." unique_id=71149430 instance=ExtResource("7_hhlp6")]
 max_health = 5
-inmportality = true
 
 [node name="Label" type="Label" parent="." unique_id=459889086]
 offset_left = -8.0
