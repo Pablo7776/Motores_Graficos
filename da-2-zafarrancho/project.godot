@@ -11,13 +11,25 @@ config_version=5
 [application]
 
 config/name="Da2_zafarrancho"
-run/main_scene="uid://31btwctqt2r4"
+run/main_scene="uid://c5ddxja50ofgc"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://bwq78fhnu4mna"
+
+[autoload]
+
+MusicManager="*uid://dt3e6wkui2x4f"
 
 [display]
 
 window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Da2_zafarrancho"
 
 [physics]
 
