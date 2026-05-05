@@ -197,7 +197,7 @@ frame_progress = 0.8083824
 [node name="StateMachine" parent="." unique_id=1018205208 instance=ExtResource("6_hhlp6")]
 
 [node name="HealthManager" parent="." unique_id=71149430 instance=ExtResource("7_hhlp6")]
-max_health = 5
+position = Vector2(1, 1)
 
 [node name="Label" type="Label" parent="." unique_id=459889086]
 offset_left = -8.0
@@ -205,3 +205,5 @@ offset_top = -63.0
 offset_right = 32.0
 offset_bottom = -40.0
 script = ExtResource("8_6ayea")
+
+[connection signal="impacto_recibido" from="HealthManager" to="Label" method="_on_health_manager_impacto_recibido"]

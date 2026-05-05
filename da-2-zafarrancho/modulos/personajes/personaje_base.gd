@@ -9,6 +9,7 @@ const JUMP_VELOCITY = -400.0
 
 var jugador_id
 var indice_en_equipo
+var MAX_HP = 5; 
 
 func _ready():
 	state_machine.init(self)

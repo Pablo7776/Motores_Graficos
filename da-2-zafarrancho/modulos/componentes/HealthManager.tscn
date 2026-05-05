@@ -2,5 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cek7a75og158v" path="res://modulos/componentes/health_manager.gd" id="1_wwtwu"]
 
-[node name="HealthManager" type="Node" unique_id=71149430]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwtwu"]
+size = Vector2(102, 77)
+
+[node name="HealthManager" type="Area2D" unique_id=1105188200]
 script = ExtResource("1_wwtwu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1082501479]
+shape = SubResource("RectangleShape2D_wwtwu")

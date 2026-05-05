@@ -1,9 +1,37 @@
-class_name HealthManager extends Node
+class_name HealthManager extends Area2D
+##Gestiona todo lo vinculado a la vida de su padre, incluso cuando es eliminado. 
 
+var max_hp;
+var current_hp;
+
+signal impacto_recibido(hp:int)
+signal defeat
+
+func _ready() -> void:
+	 #Le pide al nodo padre que le pase su variable MAX_HP, si esta variable no existe, falla
+	max_hp = get_parent().MAX_HP
+	current_hp = max_hp
+	impacto_recibido.emit(current_hp); #claramente necesita otro nombre, lo usamos para actualizar ui solamente
+	if get_parent() is PersonajeBase: #VER si es necesario este condicional 
+		#defeat.connect(GestorDeTurnos.enemigo_eliminado) Queda por sumar en el gestor de turnos PARA SACARLO DE PANTALLA
+		pass
+
+func check_death():
+	if current_hp <= 0:
+		defeat.emit()
+		get_parent().queue_free();
+
+func take_damage(dmg: int):
+	current_hp -= dmg;
+	impacto_recibido.emit(current_hp);
+	check_death();
+
+"""
 signal max_healt_changed(diff: int)
 signal health_changed(diff: int) # Es una herramienta o funcionalidad utilizada para comparar para identificar exactamente qué ha cambiado entre ellos. Ejem: Vida = 100 → 80 → diff = -20
 signal dead
 
+signal impacto_recibido(hp:int) #Esto sunmamos para probar 
 
 @export var max_health: int : set = set_max_health, get = get_max_health
 #De esta forma exporto la variable como parametro modificable mediante el inspector y lo modifico como nodo hijo desde la escena del PJ a quien se lo instancie 
@@ -71,3 +99,4 @@ func get_health():
 	return health #Nota para mi: Esto hace que la funcion debuleva modificaciones solo sobre la variable health
 
 #Con estas funciones hago en el script lo mismo que hice con el @export arriba, dejo las dos formas de modificarlo disponibles (Inspector/Script)
+"""
