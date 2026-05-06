@@ -6,6 +6,7 @@ class_name GestorDeTurnos
 var lista_de_turnos:=[]
 var matriz_de_jugadores_personajes:=[]
 var turno_actual = 0
+@onready var hud = owner.find_child("HUD")
 signal cambiar_turno(pj, turno_actual)
 
 func _ready() -> void:
@@ -14,6 +15,7 @@ func _ready() -> void:
 	#partida.iniciar.connect(_on_menu_de_partida_iniciar)
 	#_on_menu_de_partida_iniciar(2, 2) 
 	get_parent().iniciar.connect(_on_menu_de_partida_iniciar)  #✨Armado en Clase
+	cambiar_turno.connect(hud._on_gestor_cambiar_turno)
 
 #Acá se crean los grupos de pjs para cada jugador y se crea la lista de turnos
 func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
