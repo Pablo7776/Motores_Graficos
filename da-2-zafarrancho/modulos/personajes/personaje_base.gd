@@ -18,6 +18,7 @@ func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
 	if pj == self:
 		print("Es mi turno", self)
 		set_physics_process(true)
+		$Timer.start(30)
 	else:
 		set_physics_process(false)
 		print("no es mi turno", self)
@@ -37,8 +38,15 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 
 	state_machine.update(delta)
-	#Esto hace que se termine el turno
+	#Esto hace que se termine el turno con esc	
 	if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
-			state_machine.change_state(state_machine.idle_state)
-			$"../GestorDeTurnos".siguiente_turno()
+			$Timer.stop()
+			terminar_turno()
 	move_and_slide()
+
+func _on_timer_timeout() -> void:
+	terminar_turno()
+
+func terminar_turno():
+	state_machine.change_state(state_machine.idle_state)
+	$"../GestorDeTurnos".siguiente_turno()

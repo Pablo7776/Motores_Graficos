@@ -193,3 +193,7 @@ animation = &"Idle"
 frame_progress = 0.8083824
 
 [node name="StateMachine" parent="." unique_id=1018205208 instance=ExtResource("6_hhlp6")]
+
+[node name="Timer" type="Timer" parent="." unique_id=1657571321]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
