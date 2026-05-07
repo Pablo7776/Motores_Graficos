@@ -2,7 +2,12 @@ extends Area2D
 
 @export var health_manager : Node
 
-func take_damage(amount):
-
+func take_damage(amount: int):
+	print("ataque recibido")
 	if health_manager:
-		health_manager.take_damage(amount)
+		health_manager.set_health(
+			health_manager.health - amount
+		)
+	get_parent().flash_damage()
+	var hm = get_parent().get_node("HealthManager")
+	print(hm.get_health())

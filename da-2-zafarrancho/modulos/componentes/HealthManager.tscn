@@ -4,3 +4,4 @@
 
 [node name="HealthManager" type="Node" unique_id=71149430]
 script = ExtResource("1_wwtwu")
+max_health = 3
