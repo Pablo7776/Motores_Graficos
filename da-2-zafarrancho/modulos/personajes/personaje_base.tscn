@@ -2,15 +2,27 @@
 
 [ext_resource type="Texture2D" uid="uid://svv7cvakpgha" path="res://icon.svg" id="1_i15ls"]
 [ext_resource type="Script" uid="uid://c0uofwdfjv136" path="res://modulos/personajes/personaje_base.gd" id="1_wi8ml"]
+[ext_resource type="Texture2D" uid="uid://h5a8dflcw3v1" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Right_Attack.png" id="3_hhlp6"]
 [ext_resource type="Texture2D" uid="uid://bujcn4ih5eyly" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Idle.png" id="3_ypddg"]
 [ext_resource type="Texture2D" uid="uid://bwmjcg1ny2v07" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Up_Attack.png" id="4_kjutj"]
 [ext_resource type="Texture2D" uid="uid://deugiteevt02k" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Run.png" id="4_sed10"]
 [ext_resource type="PackedScene" uid="uid://cfrugvdsa3axp" path="res://modulos/personajes/StateMachine/StateMachine.tscn" id="6_hhlp6"]
 [ext_resource type="PackedScene" uid="uid://0jnxrsdc43aq" path="res://modulos/componentes/HealthManager.tscn" id="7_hhlp6"]
-[ext_resource type="Script" uid="uid://0ybyq556upi1" path="res://modulos/personajes/label.gd" id="8_6ayea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i15ls"]
 size = Vector2(59.5, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5k1u"]
+atlas = ExtResource("3_hhlp6")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j4yv"]
+atlas = ExtResource("3_hhlp6")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl3x6"]
+atlas = ExtResource("3_hhlp6")
+region = Rect2(640, 0, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sed10"]
 atlas = ExtResource("3_ypddg")
@@ -100,6 +112,20 @@ region = Rect2(1600, 0, 320, 320)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_r5k1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j4yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl3x6")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sed10")
 }, {
 "duration": 1.0,
@@ -178,7 +204,6 @@ animations = [{
 }]
 
 [node name="PersonajeBase" type="CharacterBody2D" unique_id=1880926583]
-position = Vector2(400, 400)
 script = ExtResource("1_wi8ml")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=783236758]
@@ -191,13 +216,12 @@ shape = SubResource("RectangleShape2D_i15ls")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1608774696]
 sprite_frames = SubResource("SpriteFrames_lt4l4")
-animation = &"Idle"
-frame_progress = 0.8083824
+animation = &"Run"
 
 [node name="StateMachine" parent="." unique_id=1018205208 instance=ExtResource("6_hhlp6")]
 
-
 [node name="Timer" type="Timer" parent="." unique_id=1657571321]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="HealthManager" parent="." unique_id=71149430 instance=ExtResource("7_hhlp6")]
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
