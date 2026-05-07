@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bwmjcg1ny2v07" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Up_Attack.png" id="4_kjutj"]
 [ext_resource type="Texture2D" uid="uid://deugiteevt02k" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Run.png" id="4_sed10"]
 [ext_resource type="PackedScene" uid="uid://cfrugvdsa3axp" path="res://modulos/personajes/StateMachine/StateMachine.tscn" id="6_hhlp6"]
+[ext_resource type="PackedScene" uid="uid://0jnxrsdc43aq" path="res://modulos/componentes/HealthManager.tscn" id="7_hhlp6"]
+[ext_resource type="Script" uid="uid://0ybyq556upi1" path="res://modulos/personajes/label.gd" id="8_6ayea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i15ls"]
 size = Vector2(59.5, 74)
@@ -194,6 +196,8 @@ frame_progress = 0.8083824
 
 [node name="StateMachine" parent="." unique_id=1018205208 instance=ExtResource("6_hhlp6")]
 
+
 [node name="Timer" type="Timer" parent="." unique_id=1657571321]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
