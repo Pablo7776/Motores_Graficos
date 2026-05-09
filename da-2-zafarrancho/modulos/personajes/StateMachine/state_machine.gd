@@ -7,6 +7,7 @@ var current_state
 @onready var run_state = $RunState
 @onready var jump_state = $JumpState
 @onready var attack_state = $AttackState
+@onready var dead_state = $DeadState
 @onready var fuera_de_turno = $FueraDeTurno  #✨Armado en Clase
 
 func init(owner):

@@ -4,7 +4,7 @@ signal max_healt_changed(diff: int)
 signal health_changed(diff: int) # Es una herramienta o funcionalidad utilizada para comparar para identificar exactamente qué ha cambiado entre ellos. Ejem: Vida = 100 → 80 → diff = -20
 signal dead
 
-
+@export var state_machine : Node
 @export var max_health: int : set = set_max_health, get = get_max_health
 #De esta forma exporto la variable como parametro modificable mediante el inspector y lo modifico como nodo hijo desde la escena del PJ a quien se lo instancie 
 @export var inmportality: bool = false : set = set_inmortality, get = get_inmortality
@@ -65,6 +65,11 @@ func set_health(value: int):
 		
 		if health == 0:
 			dead.emit()
+
+			if state_machine:
+				state_machine.change_state(
+				state_machine.dead_state
+		)
 
 
 func get_health():
