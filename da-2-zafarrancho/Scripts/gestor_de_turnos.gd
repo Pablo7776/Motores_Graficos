@@ -44,6 +44,7 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 		matriz_de_jugadores_personajes.append(lista_de_pjs)
 	crear_lista_de_turnos()
 
+#Se crea la lista de turnos en forma de matriz
 func crear_lista_de_turnos():
 	for p in range(cantidad_de_pj_por_jugador):
 		for j in range(cantidad_de_jugadores):
