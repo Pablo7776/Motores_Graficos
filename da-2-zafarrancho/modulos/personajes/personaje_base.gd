@@ -6,7 +6,6 @@ const JUMP_VELOCITY = -400.0
 
 @onready var anim = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
-@onready var hitbox: Area2D = $Hitbox
 
 
 var jugador_id
@@ -54,10 +53,3 @@ func terminar_turno():
 	state_machine.change_state(state_machine.idle_state)
 	$"../GestorDeTurnos".siguiente_turno()
 	
-func flash_damage():
-	print("flash_damage")
-	anim.modulate = Color.RED
-
-	await get_tree().create_timer(0.5).timeout
-
-	anim.modulate = Color.WHITE

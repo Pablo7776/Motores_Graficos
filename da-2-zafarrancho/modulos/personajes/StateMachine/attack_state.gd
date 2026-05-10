@@ -1,12 +1,14 @@
 extends State
 
 func enter(player):
-	print("AAAAAA")
+
 	player.velocity.x = 0
 
 	player.play_animation("Attack")
-	
-	player.hitbox.activate()
+
+	var hitbox = player.get_node("Hitbox")
+
+	hitbox.attack()
 
 	await player.anim.animation_finished
 

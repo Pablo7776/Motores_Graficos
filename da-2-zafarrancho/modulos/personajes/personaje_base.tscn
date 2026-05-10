@@ -227,8 +227,7 @@ animation = &"Run"
 [node name="HealthManager" parent="." unique_id=71149430 node_paths=PackedStringArray("state_machine") instance=ExtResource("7_hhlp6")]
 state_machine = NodePath("../StateMachine")
 
-[node name="Hurtbox" parent="." unique_id=788915030 node_paths=PackedStringArray("health_manager") instance=ExtResource("9_fqy2a")]
-health_manager = NodePath("../HealthManager")
+[node name="Hurtbox" parent="." unique_id=788915030 instance=ExtResource("9_fqy2a")]
 
 [node name="Hitbox" parent="." unique_id=1959214690 instance=ExtResource("10_54fsg")]
 
