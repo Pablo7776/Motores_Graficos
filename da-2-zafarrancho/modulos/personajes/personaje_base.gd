@@ -25,11 +25,12 @@ func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
 		set_physics_process(true)
 		dado.activo = true
 		dado.ya_tirado = false
-		#$Timer.start(_on_dado_valor)
+		#$Timer.start(0)
 		
 	else:
 		set_physics_process(false)
 		dado.activo = false
+		$Timer.stop()
 		print("no es mi turno", self)
 """
 	if pj.jugador_id == jugador_id:
