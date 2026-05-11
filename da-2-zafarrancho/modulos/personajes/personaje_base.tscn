@@ -236,3 +236,4 @@ state_machine = NodePath("../StateMachine")
 position = Vector2(16, -57)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dead" from="HealthManager" to="." method="_on_health_manager_dead"]
