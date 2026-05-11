@@ -13,6 +13,7 @@ func _on_dado_valor(valor):
 
 func _on_gestor_cambiar_turno(pj, turno_actual):
 
+	$Timer.stop()
 	# Desconectar dado anterior
 	if pj_actual != null:
 
