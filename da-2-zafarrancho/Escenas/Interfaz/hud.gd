@@ -25,6 +25,7 @@ func _on_gestor_cambiar_turno(pj, turno_actual):
 	pj_actual = pj
 
 	# Conectar nuevo dado
+	
 	pj_actual.dado.dado_valor.connect(_on_dado_valor)
 
 	_mostrar_turno()
