@@ -4,17 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://duwe2tngv1nck" path="res://Escenas/character_body_2d.tscn" id="2_oybtx"]
 [ext_resource type="PackedScene" uid="uid://3al52cakf5pa" path="res://Escenas/proyectil.tscn" id="3_oybtx"]
 [ext_resource type="PackedScene" uid="uid://canl8j7cm4psw" path="res://modulos/personajes/personaje_base.tscn" id="4_6c0e8"]
+[ext_resource type="PackedScene" uid="uid://d15elpf6pg53q" path="res://Escenas/camera_2d.tscn" id="5_p5ire"]
 
 [node name="Nivel" type="Node" unique_id=2039280713]
 
 [node name="mapa" parent="." unique_id=889226769 instance=ExtResource("1_itpy2")]
 
-[node name="CharacterBody2D" parent="." unique_id=1031208052 instance=ExtResource("2_oybtx")]
-visible = false
+[node name="CharacterBody2D" parent="." unique_id=1031208052 groups=["personajes"] instance=ExtResource("2_oybtx")]
 position = Vector2(138, 221)
 scale = Vector2(0.345, 0.345)
 escena_proyectil = ExtResource("3_oybtx")
 
-[node name="PersonajeBase" parent="." unique_id=1880926583 instance=ExtResource("4_6c0e8")]
-position = Vector2(30, 31)
+[node name="PersonajeBase" parent="." unique_id=1880926583 groups=["personajes"] instance=ExtResource("4_6c0e8")]
+position = Vector2(668, -16)
 collision_layer = 2
+
+[node name="Camera2D" parent="." unique_id=2146132473 instance=ExtResource("5_p5ire")]

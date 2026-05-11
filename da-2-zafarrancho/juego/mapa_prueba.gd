@@ -50,14 +50,14 @@ func explosion(pos_global: Vector2, radius: int) -> void:
 				
 			var pixel = pos_local + Vector2(x, y)
 			
-			# 3. Comprobamos los límites tanto para X como para Y
+			# Comprobamos los límites tanto para X como para Y
 			if pixel.x < 0 or pixel.y < 0 or pixel.x >= fg_data.get_width() or pixel.y >= fg_data.get_height():
 				continue
 				
 			# Borramos el píxel
 			fg_data.set_pixelv(pixel, TRANSPARENT)
 			
-	# FUERA DEL BUCLE: Actualizamos la textura visual una sola vez
+	# Actualizamos la textura visual una sola vez
 	fg.texture = ImageTexture.create_from_image(fg_data)
 	
 	# Le pasamos la imagen ya agujereada al nodo de colisiones

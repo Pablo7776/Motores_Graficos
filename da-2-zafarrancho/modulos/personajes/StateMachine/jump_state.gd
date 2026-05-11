@@ -4,7 +4,6 @@ var tiempo_salto = 0
 
 func enter(player):
 	player.play_animation("Jump")
-	# Usamos la variable que exportamos en el jugador, o ponle 10 directamente
 	tiempo_salto = player.duracion_salto 
 
 func update(player, delta):
@@ -13,10 +12,8 @@ func update(player, delta):
 		player.state_machine.change_state(player.state_machine.idle_state)
 		return
 		
-	# AQUÍ DECLARAMOS 'direction'
 	var direction = Input.get_axis("ui_left", "ui_right") 
 	
-	# Giramos el sprite en el aire si nos movemos
 	if direction != 0:
 		player.anim.flip_h = direction < 0
 	

@@ -4,13 +4,11 @@ extends Node
 @onready var fg = $"../Sprite2D" 
 var imagen_terreno: Image
 
-# Esta es la función que tu mapa llama en _ready()
+
 func init_map() -> void:
-	# donde habrá cuevas o islas flotantes, es mejor leer la imagen directamente.
 	# Guardamos la imagen en memoria para que las físicas sean muy rápidas.
 	imagen_terreno = fg.texture.get_image()
 
-# Esta es la función que tu personaje está buscando
 func colission_normal(pos: Vector2) -> Vector2:
 	# Si la imagen aún no ha cargado, decimos que es aire
 	if imagen_terreno == null:
