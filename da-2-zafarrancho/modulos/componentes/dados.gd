@@ -6,6 +6,7 @@ signal dado_valor(valor)
 var cara := 1
 var girando := false
 var activo := false
+var ya_tirado := false
 
 @onready var label = $Label
 
@@ -22,12 +23,15 @@ func _input(event):
 	# Si no es mi turno, ignoro input
 	if not activo:
 		return
+	if ya_tirado:
+		return
 
 	if event is InputEventMouseButton:
 
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 
 			if not girando:
+				ya_tirado = true
 				tirar_dado()
 
 

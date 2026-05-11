@@ -24,6 +24,7 @@ func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
 		print("Es mi turno", self)
 		set_physics_process(true)
 		dado.activo = true
+		dado.ya_tirado = false
 		#$Timer.start(_on_dado_valor)
 		
 	else:

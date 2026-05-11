@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Da2_zafarrancho"
 
+[editor]
+
+movie_writer/movie_file="/home/pablus/Vídeos/aaa.avi"
+
 [input]
 
 attack={
