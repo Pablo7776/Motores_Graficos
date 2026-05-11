@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://omrlmirhee5j"]
+
+[ext_resource type="Script" uid="uid://dg6xgho5bkyji" path="res://modulos/componentes/dados.gd" id="1_v4hh3"]
+
+[node name="dado" type="Node2D" unique_id=1716550576]
+script = ExtResource("1_v4hh3")
+
+[node name="Label" type="Label" parent="." unique_id=448460288]
+offset_right = 40.0
+offset_bottom = 23.0

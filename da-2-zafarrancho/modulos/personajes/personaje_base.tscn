@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://0jnxrsdc43aq" path="res://modulos/componentes/HealthManager.tscn" id="7_hhlp6"]
 [ext_resource type="PackedScene" uid="uid://k7me60pusy4k" path="res://modulos/componentes/hurtbox.tscn" id="9_fqy2a"]
 [ext_resource type="PackedScene" uid="uid://6f6h65cunh3q" path="res://modulos/componentes/Hitbox.tscn" id="10_54fsg"]
+[ext_resource type="PackedScene" uid="uid://omrlmirhee5j" path="res://modulos/componentes/dados.tscn" id="11_54fsg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i15ls"]
 size = Vector2(59.5, 74)
@@ -230,5 +231,8 @@ state_machine = NodePath("../StateMachine")
 [node name="Hurtbox" parent="." unique_id=788915030 instance=ExtResource("9_fqy2a")]
 
 [node name="Hitbox" parent="." unique_id=1959214690 instance=ExtResource("10_54fsg")]
+
+[node name="Dado" parent="." unique_id=1716550576 instance=ExtResource("11_54fsg")]
+position = Vector2(16, -57)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
