@@ -5,36 +5,26 @@ func enter(player):
 	print("CORRER")
 
 func update(player, delta):
-
 	var direction = Input.get_axis("ui_left", "ui_right")
 
+	# Condición para salir a Idle
 	if direction == 0:
-		player.state_machine.change_state(
-			player.state_machine.idle_state
-		)
+		player.state_machine.change_state(player.state_machine.idle_state)
 		return
 
-	player.velocity.x = direction * player.SPEED
+	player.mover_horizontal(direction)
+	
+	
+	if Input.is_action_just_pressed("ui_accept") and player.tocando_el_suelo():
+		player.state_machine.change_state(player.state_machine.jump_state)
+		return
+	
+	# Girar el sprite
 	player.anim.flip_h = direction < 0
-
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
-
 		player.velocity.y = player.JUMP_VELOCITY
-
-		player.state_machine.change_state(
-			player.state_machine.jump_state
-		)
-
+		player.state_machine.change_state(player.state_machine.jump_state)
 		return
 
-	if Input.is_action_just_pressed("attack"):
-
-		player.state_machine.change_state(
-			player.state_machine.attack_state
-		)
-
-		return
-
-
-func exit(player):
+func  exit(player):
 	player.velocity.x = 0

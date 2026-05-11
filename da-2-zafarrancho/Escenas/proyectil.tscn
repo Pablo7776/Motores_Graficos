@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://3al52cakf5pa"]
+
+[ext_resource type="Script" uid="uid://bebxu8eqd3sdp" path="res://proyectil.gd" id="1_lm3un"]
+[ext_resource type="Texture2D" uid="uid://cu1sgvccixo5h" path="res://Recursos/Assets_Visuales/Personajes/gratis-png-ilustracion-redonda-roja-circulo-rojo-removebg-preview.png" id="2_hn6hq"]
+
+[node name="proyectil" type="Node2D" unique_id=716937851]
+script = ExtResource("1_lm3un")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1897861510]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("2_hn6hq")

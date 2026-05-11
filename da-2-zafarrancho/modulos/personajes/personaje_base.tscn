@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://svv7cvakpgha" path="res://icon.svg" id="1_i15ls"]
 [ext_resource type="Script" uid="uid://c0uofwdfjv136" path="res://modulos/personajes/personaje_base.gd" id="1_wi8ml"]
-[ext_resource type="Texture2D" uid="uid://h5a8dflcw3v1" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Right_Attack.png" id="3_hhlp6"]
+[ext_resource type="Texture2D" uid="uid://l4sy6shd1ujx" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_DownRight_Attack.png" id="3_hhlp6"]
 [ext_resource type="Texture2D" uid="uid://bujcn4ih5eyly" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Idle.png" id="3_ypddg"]
 [ext_resource type="Texture2D" uid="uid://bwmjcg1ny2v07" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Up_Attack.png" id="4_kjutj"]
-[ext_resource type="Texture2D" uid="uid://deugiteevt02k" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Run.png" id="4_sed10"]
+[ext_resource type="Texture2D" uid="uid://h5a8dflcw3v1" path="res://Recursos/Assets_Visuales/Personajes/Placeholders/Lancer/Lancer_Right_Attack.png" id="4_sed10"]
 [ext_resource type="PackedScene" uid="uid://cfrugvdsa3axp" path="res://modulos/personajes/StateMachine/StateMachine.tscn" id="6_hhlp6"]
 [ext_resource type="PackedScene" uid="uid://0jnxrsdc43aq" path="res://modulos/componentes/HealthManager.tscn" id="7_hhlp6"]
 [ext_resource type="PackedScene" uid="uid://k7me60pusy4k" path="res://modulos/componentes/hurtbox.tscn" id="9_fqy2a"]
