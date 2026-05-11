@@ -41,14 +41,16 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 			nuevo_pj.indice_en_equipo = p
 			#Acá se agrega a la lista de pjs
 			lista_de_pjs.append(nuevo_pj)
+			if p == 1:
+				nuevo_pj.modulate = Color.BLACK
 		#Mete todos los personajes de un jugador en su propia lista.
 		matriz_de_jugadores_personajes.append(lista_de_pjs)
 	crear_lista_de_turnos()
 
 #Se crea la lista de turnos en forma de matriz
 func crear_lista_de_turnos():
-	for p in range(cantidad_de_pj_por_jugador):
-		for j in range(cantidad_de_jugadores):
+	for j in range(cantidad_de_pj_por_jugador):
+		for p in range(cantidad_de_jugadores):
 			var pj = matriz_de_jugadores_personajes[j][p]
 			lista_de_turnos.append(pj)
 		turno_actual = 0
