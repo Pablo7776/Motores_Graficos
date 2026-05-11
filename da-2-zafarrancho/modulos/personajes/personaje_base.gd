@@ -69,8 +69,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
 			$Timer.stop()
 			terminar_turno()
-
-	print("Viendo volar al personaje... Su estado actual es: ", state_machine.current_state.name)
+	move_and_slide()
 
 func _on_timer_timeout() -> void:
 	terminar_turno()
