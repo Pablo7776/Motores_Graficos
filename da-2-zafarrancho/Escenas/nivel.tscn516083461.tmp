@@ -16,5 +16,4 @@ scale = Vector2(0.345, 0.345)
 escena_proyectil = ExtResource("3_oybtx")
 
 [node name="PersonajeBase" parent="." unique_id=1880926583 instance=ExtResource("4_6c0e8")]
-position = Vector2(30, 31)
-collision_layer = 2
+position = Vector2(121, 179)

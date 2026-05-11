@@ -2,9 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://svv7cvakpgha" path="res://icon.svg" id="1_anp25"]
 
-[node name="Escenario" type="Node2D" unique_id=1811008819]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anp25"]
+size = Vector2(1208, 101)
+
+[node name="Escenario" type="StaticBody2D" unique_id=88161752]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=939789927]
+position = Vector2(24, -9)
+shape = SubResource("RectangleShape2D_anp25")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=245571881]
-position = Vector2(578, 0)
 scale = Vector2(10.03125, 1)
 texture = ExtResource("1_anp25")

@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 				valid_pos = pos_local
 		jump -= 1
 		position = valid_pos
-	if Input.is_action_just_pressed("ui_accept"): # Al presionar Espacio o Enter	
+	if Input.is_action_just_pressed("ui_accept"): 
 		disparar()
 		return
 		

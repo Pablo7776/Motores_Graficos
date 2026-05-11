@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bl4kaog8ass5y"]
+
+[ext_resource type="Script" uid="uid://cu5bs68lh8x5l" path="res://Escenas/Interfaz/hud.gd" id="1_owbtu"]
+[ext_resource type="FontFile" uid="uid://cla3yyxnq4amh" path="res://Recursos/Tipografias/!SketchyTimes-b.ttf" id="2_0h31l"]
+
+[node name="HUD" type="Node2D" unique_id=265661405]
+script = ExtResource("1_owbtu")
+
+[node name="Tiempo" type="Label" parent="." unique_id=1424201482]
+offset_left = 531.5
+offset_top = 22.0
+offset_right = 620.5
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_0h31l")
+theme_override_font_sizes/font_size = 28
+text = "Tiempo :"
+
+[node name="Timer" type="Timer" parent="." unique_id=708280605]
+
+[node name="PJs_de_Jugador_1" type="Label" parent="." unique_id=3031457]
+offset_left = 343.0
+offset_top = 29.0
+offset_right = 383.0
+offset_bottom = 52.0

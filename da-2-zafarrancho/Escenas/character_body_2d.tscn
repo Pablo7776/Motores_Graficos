@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://duwe2tngv1nck"]
 
-[ext_resource type="Script" uid="uid://qyhlbc17kv3s" path="res://Scripts/character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="Script" uid="uid://bwej5pvunvkvo" path="res://juego/personaje_prueba.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://svv7cvakpgha" path="res://icon.svg" id="2_ghijl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
