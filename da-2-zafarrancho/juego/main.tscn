@@ -19,3 +19,13 @@ position = Vector2(309, 284)
 position = Vector2(590, 572)
 
 [node name="HUD" parent="." unique_id=265661405 instance=ExtResource("5_47xpy")]
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=951989123]
+offset_left = 865.0
+offset_top = 35.0
+offset_right = 1128.0
+offset_bottom = 280.0
+text = "teclas: 
+Esc = cambiar turno
+Ruedita del mouse = girar dado
+Flechas = mover PJ"
