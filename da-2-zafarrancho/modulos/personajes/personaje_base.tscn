@@ -192,7 +192,7 @@ state_machine = NodePath("../StateMachine")
 [node name="Hitbox" parent="." unique_id=1959214690 instance=ExtResource("10_54fsg")]
 
 [node name="Dado" parent="." unique_id=1716550576 instance=ExtResource("11_54fsg")]
-position = Vector2(16, -57)
+position = Vector2(-14, -17)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="dead" from="HealthManager" to="." method="_on_health_manager_dead"]

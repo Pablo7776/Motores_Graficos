@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bd8vekjx3u65n" path="res://juego/main.gd" id="1_itpfl"]
 [ext_resource type="PackedScene" uid="uid://canl8j7cm4psw" path="res://modulos/personajes/personaje_base.tscn" id="2_5h5rq"]
+[ext_resource type="Texture2D" uid="uid://d258sok61mg5i" path="res://Recursos/Assets_Visuales/Escenarios/Fondos/Cuadriculada.jpg" id="2_66ooa"]
 [ext_resource type="PackedScene" uid="uid://cjx5m6v6e4cab" path="res://modulos/escenario/escenario.tscn" id="3_wpyno"]
 [ext_resource type="PackedScene" uid="uid://dnvdn8e7tarvj" path="res://Escenas/gestor_de_turnos.tscn" id="4_wpyno"]
 [ext_resource type="PackedScene" uid="uid://bl4kaog8ass5y" path="res://Escenas/Interfaz/hud.tscn" id="5_47xpy"]
 
 [node name="Main" type="Node2D" unique_id=2115022120]
 script = ExtResource("1_itpfl")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1905305635]
+offset_right = 1151.2242
+offset_bottom = 860.0
+texture = ExtResource("2_66ooa")
 
 [node name="GestorDeTurnos" parent="." unique_id=32084317 instance=ExtResource("4_wpyno")]
 
