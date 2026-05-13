@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://brsp54q2bvlyg" path="res://Escenas/MenuScripts/menu_principal.gd" id="1_ft1ng"]
 [ext_resource type="Texture2D" uid="uid://bn0hn04dvepsj" path="res://Recursos/MainMenu/da2_menu_fondo.png" id="2_qncgo"]
 [ext_resource type="FontFile" uid="uid://cla3yyxnq4amh" path="res://Recursos/Tipografias/!SketchyTimes-b.ttf" id="3_qncgo"]
+[ext_resource type="Texture2D" uid="uid://cp6rtth0lb55h" path="res://Recursos/Assets_Visuales/UI/Cursor_apuntar.png" id="4_yo4kt"]
+[ext_resource type="Texture2D" uid="uid://b67srk2envn3y" path="res://Recursos/Assets_Visuales/UI/Cursor_apuntar_activo.png" id="5_15krf"]
+[ext_resource type="Texture2D" uid="uid://upkua85pcicu" path="res://Recursos/Assets_Visuales/UI/Cursor_apuntar_inactivo.png" id="6_j2d8q"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmcsc"]
 texture = ExtResource("2_qncgo")
@@ -22,6 +25,9 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opkeq"]
+bg_color = Color(0, 0, 0, 0.8117647)
 
 [node name="MenuPrincipal" type="Control" unique_id=37096229]
 process_mode = 1
@@ -108,6 +114,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_opkeq")
 
 [node name="CenterContainer" type="CenterContainer" parent="Opciones" unique_id=1991701220]
 layout_mode = 1
@@ -125,7 +132,8 @@ theme_override_constants/separation = 6
 [node name="Title" type="Label" parent="Opciones/CenterContainer/VBox" unique_id=1487482082]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 38
 text = "OPCIONES"
 horizontal_alignment = 1
 
@@ -135,8 +143,10 @@ theme_override_constants/separation = 8
 
 [node name="LabelAudio" type="Label" parent="Opciones/CenterContainer/VBox" unique_id=671373944]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.6, 0.8, 1, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.02745098, 0.6862745, 0.15686275, 1)
+theme_override_colors/font_shadow_color = Color(0.023529412, 0.023529412, 0.023529412, 0.92941177)
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 25
 text = "— AUDIO —"
 horizontal_alignment = 1
 
@@ -149,7 +159,8 @@ custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 20
 text = "Volumen Maestro"
 vertical_alignment = 1
 
@@ -157,6 +168,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("4_yo4kt")
+theme_override_icons/grabber_highlight = ExtResource("5_15krf")
+theme_override_icons/grabber_disabled = ExtResource("6_j2d8q")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -166,7 +180,8 @@ custom_minimum_size = Vector2(44, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 18
 text = "100%"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -180,14 +195,18 @@ custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
-theme_override_font_sizes/font_size = 16
-text = "Volumen Musica"
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 20
+text = "Volumen Música"
 vertical_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="Opciones/CenterContainer/VBox/RowMusic" unique_id=526983891]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("4_yo4kt")
+theme_override_icons/grabber_highlight = ExtResource("5_15krf")
+theme_override_icons/grabber_disabled = ExtResource("6_j2d8q")
 max_value = 1.0
 step = 0.01
 value = 0.8
@@ -197,7 +216,8 @@ custom_minimum_size = Vector2(44, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 18
 text = "80%"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -211,7 +231,8 @@ custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 20
 text = "Volumen Efectos"
 vertical_alignment = 1
 
@@ -219,6 +240,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("4_yo4kt")
+theme_override_icons/grabber_highlight = ExtResource("5_15krf")
+theme_override_icons/grabber_disabled = ExtResource("6_j2d8q")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -228,7 +252,8 @@ custom_minimum_size = Vector2(44, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 18
 text = "100%"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -239,8 +264,10 @@ theme_override_constants/separation = 8
 
 [node name="LabelVideo" type="Label" parent="Opciones/CenterContainer/VBox" unique_id=229710019]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.6, 0.8, 1, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.02745098, 0.6862745, 0.15686275, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.92941177)
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 25
 text = "— VIDEO —"
 horizontal_alignment = 1
 
@@ -252,7 +279,8 @@ theme_override_constants/separation = 12
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 20
 text = "Pantalla Completa"
 vertical_alignment = 1
 
@@ -269,7 +297,8 @@ custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_x7udj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bj1uy")
 text = "VOLVER"
