@@ -28,8 +28,8 @@ func _input(event):
 
 	if event is InputEventMouseButton:
 
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP \
+		or event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			if not girando:
 				ya_tirado = true
 				tirar_dado()
