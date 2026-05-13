@@ -12,7 +12,7 @@ func enter(player):
 
 	await player.anim.animation_finished
 
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("mover_izquierda", "mover_derecha")
 
 	if player.is_on_floor():
 
