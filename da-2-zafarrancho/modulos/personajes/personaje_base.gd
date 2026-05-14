@@ -9,6 +9,7 @@ const JUMP_VELOCITY = -400.0
 @onready var dado = $Dado
 @onready var gestor_de_turnos = get_parent().get_node("res://Scripts/gestor_de_turnos.gd")
 
+var estoy_activo = false
 var jugador_id
 var indice_en_equipo
 signal mori(jugador_id,indice_en_equipo)
@@ -24,14 +25,15 @@ func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
 		print("Es mi turno", self)
 		dado.activo = true
 		dado.ya_tirado = false
-		set_physics_process(false)
+		#set_physics_process(false)
 		#$Timer.start(0)
-		
+
 	else:
-		set_physics_process(false)
+		#set_physics_process(false)
 		dado.activo = false
 		$Timer.stop()
-		print("no es mi turno", self)
+		estoy_activo = false
+		#print("no es mi turno", self)
 """
 	if pj.jugador_id == jugador_id:
 		print("Es el turno de:", jugador_id, indice_en_equipo)
@@ -46,7 +48,8 @@ func _on_dado_valor(valor):
 
 	# El timer dura lo mismo que el valor del dado
 	$Timer.start(valor)
-	set_physics_process(true)
+	estoy_activo = true
+	#set_physics_process(true)
 
 func play_animation(anim_name):
 	anim.play(anim_name)
@@ -55,13 +58,13 @@ func play_animation(anim_name):
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	state_machine.update(delta)
+	if estoy_activo:
+		state_machine.update(delta)
 	#Esto hace que se termine el turno con esc	
-	if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
-			$Timer.stop()
-			terminar_turno()
-	move_and_slide()
+		if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
+				$Timer.stop()
+				terminar_turno()
+		move_and_slide()
 
 func _on_timer_timeout() -> void:
 	terminar_turno()
