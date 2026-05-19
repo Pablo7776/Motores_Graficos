@@ -15,7 +15,7 @@ func update(player, delta):
 		return
 
 	player.velocity.x = direction * player.SPEED
-	player.anim.flip_h = direction < 0
+	player.animacion.flip_h = direction < 0
 
 	if Input.is_action_just_pressed("saltar") and player.is_on_floor():
 
