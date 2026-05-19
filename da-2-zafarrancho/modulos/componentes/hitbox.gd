@@ -13,7 +13,7 @@ func _ready():
 
 func attack():
 
-	set_direction(player.anim.flip_h)
+	set_direction(player.animacion.flip_h)
 
 	activate()
 
