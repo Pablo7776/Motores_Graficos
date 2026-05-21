@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cjx5m6v6e4cab" path="res://modulos/escenario/escenario.tscn" id="3_wpyno"]
 [ext_resource type="PackedScene" uid="uid://dnvdn8e7tarvj" path="res://Escenas/gestor_de_turnos.tscn" id="4_wpyno"]
 [ext_resource type="PackedScene" uid="uid://bl4kaog8ass5y" path="res://Escenas/Interfaz/hud.tscn" id="5_47xpy"]
+[ext_resource type="Script" uid="uid://cnbforull2oip" path="res://juego/camera_2d.gd" id="7_y0801"]
 
 [node name="Main" type="Node2D" unique_id=2115022120]
 script = ExtResource("1_itpfl")
@@ -15,7 +16,8 @@ offset_right = 1151.2242
 offset_bottom = 860.0
 texture = ExtResource("2_66ooa")
 
-[node name="GestorDeTurnos" parent="." unique_id=32084317 instance=ExtResource("4_wpyno")]
+[node name="GestorDeTurnos" parent="." unique_id=32084317 node_paths=PackedStringArray("camara") instance=ExtResource("4_wpyno")]
+camara = NodePath("../Camera2D")
 
 [node name="PersonajeBase" parent="." unique_id=992633112 instance=ExtResource("2_5h5rq")]
 visible = false
@@ -23,8 +25,6 @@ position = Vector2(309, 284)
 
 [node name="Escenario" parent="." unique_id=1811008819 instance=ExtResource("3_wpyno")]
 position = Vector2(590, 572)
-
-[node name="HUD" parent="." unique_id=265661405 instance=ExtResource("5_47xpy")]
 
 [node name="TextEdit" type="TextEdit" parent="." unique_id=951989123]
 offset_left = 865.0
@@ -35,3 +35,8 @@ text = "teclas:
 Esc = cambiar turno
 Ruedita del mouse = girar dado
 Flechas = mover PJ"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=180915732]
+script = ExtResource("7_y0801")
+
+[node name="HUD" parent="Camera2D" unique_id=265661405 instance=ExtResource("5_47xpy")]
