@@ -66,10 +66,9 @@ func set_health(value: int):
 		if health == 0:
 			dead.emit()
 
-			if state_machine:
-				state_machine.change_state(
-				state_machine.dead_state
-		)
+#			if state_machine:
+#				state_machine.change_state(
+#				state_machine.dead_state)
 
 
 func get_health():

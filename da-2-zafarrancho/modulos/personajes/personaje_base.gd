@@ -4,26 +4,41 @@ class_name PersonajeBase
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-@onready var anim = $AnimatedSprite2D
+@onready var animacion
 @onready var state_machine = $StateMachine
 @onready var mapa = $"../mapa"
 
 var jugador_id
+@onready var dado = $Dado
+@onready var gestor_de_turnos = get_parent().get_node("res://Scripts/gestor_de_turnos.gd")
+
+var jugador_id = 0
 var indice_en_equipo
+signal mori(jugador_id,indice_en_equipo)
+
 
 func _ready():
+	asignar_animacion()
 	state_machine.init(self)
 	
 @export var duracion_salto: int = 10
 @export var escalones_salto: Array[int] = [0, -1,-2,-3,-4,-5]
+	dado.dado_valor.connect(_on_dado_valor)
+
+
 
 func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
 	if pj == self:
 		print("Es mi turno", self)
-		set_physics_process(true)
-		$Timer.start(30)
+		dado.activo = true
+		dado.ya_tirado = false
+		set_physics_process(false)
+		#$Timer.start(0)
+		
 	else:
 		set_physics_process(false)
+		dado.activo = false
+		$Timer.stop()
 		print("no es mi turno", self)
 """
 	if pj.jugador_id == jugador_id:
@@ -61,6 +76,27 @@ func tocando_el_suelo() -> bool:
 func play_animation(anim_name):
 	anim.play(anim_name)
 	
+# Esta función recibe el valor del dado
+func _on_dado_valor(valor):
+
+	print("Valor del dado:", valor)
+
+	# El timer dura lo mismo que el valor del dado
+	$Timer.start(valor)
+	set_physics_process(true)
+
+func asignar_animacion():
+	if (jugador_id+1)%2 ==0:
+		animacion = preload("res://Escenas/Personajes/sprite_pj_2.tscn").instantiate()
+	else:
+		animacion = preload("res://Escenas/Personajes/sprite_pj_1.tscn").instantiate()
+	add_child(animacion)
+	move_child(animacion,0)
+
+
+func play_animation(anim_name):
+	print(animacion)
+	animacion.play(anim_name)
 
 func _physics_process(delta):
 	
@@ -78,3 +114,7 @@ func terminar_turno():
 	state_machine.change_state(state_machine.idle_state)
 	$"../GestorDeTurnos".siguiente_turno()
 	
+
+func _on_health_manager_dead() -> void:
+	$StateMachine.change_state(state_machine.dead_state)
+	mori.emit()

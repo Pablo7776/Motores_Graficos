@@ -30,14 +30,14 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 			var nuevo_pj = personaje.instantiate()
 			#Acá habría que agregarlo a la escena de nivel ¿O esto lo haría el propio pj al construirlo?
 			nuevo_pj.position = Vector2(j * 200, p * 100)
+			nuevo_pj.jugador_id = j
+			nuevo_pj.indice_en_equipo = p
 			get_parent().add_child(nuevo_pj)
-			cambiar_turno.connect(nuevo_pj._on_cambiar_turno)  #✨Armado en Clase
+			cambiar_turno.connect(nuevo_pj._on_cambiar_turno) #✨Armado en Clase
+			nuevo_pj.mori.connect(_on_pj_mori)
 			#Acá se agrega al grupo del jugador j
 			nuevo_pj.add_to_group("pjs_jugador_%d" %(j+1))
 			#Necesitamos estas dos variables en el pj jugador_id e indice_en_equipo
-			#Acá me parece que estoy rompiendo el encapsulamiento del pj, pero no estoy seguro
-			nuevo_pj.jugador_id = j
-			nuevo_pj.indice_en_equipo = p
 			#Acá se agrega a la lista de pjs
 			lista_de_pjs.append(nuevo_pj)
 		#Mete todos los personajes de un jugador en su propia lista.
@@ -56,4 +56,13 @@ func crear_lista_de_turnos():
 func siguiente_turno():
 	turno_actual = (turno_actual + 1) % lista_de_turnos.size()
 	var pj = lista_de_turnos[turno_actual]
+	if !is_instance_valid(pj):
+		lista_de_turnos.remove_at(turno_actual)
+		siguiente_turno()
+		return
 	cambiar_turno.emit(pj, turno_actual)
+
+func _on_pj_mori(jugador_id,indice_en_equipo):
+	var pj = matriz_de_jugadores_personajes[jugador_id][indice_en_equipo]
+	print(pj, "Matado")
+	pj.queue_free()

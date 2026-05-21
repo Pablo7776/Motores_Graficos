@@ -6,7 +6,7 @@ func enter(player):
 	player.set_physics_process(false)
 
 func update(player, delta):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("cambiar_turno"):
 		print("ando")
 		player.state_machine.change_state(player.state_machine.idle_state)
 

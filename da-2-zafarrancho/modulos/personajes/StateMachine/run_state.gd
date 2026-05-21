@@ -5,7 +5,8 @@ func enter(player):
 	print("CORRER")
 
 func update(player, delta):
-	var direction = Input.get_axis("ui_left", "ui_right")
+
+	var direction = Input.get_axis("mover_izquierda", "mover_derecha")
 
 	# Condición para salir a Idle
 	if direction == 0:
