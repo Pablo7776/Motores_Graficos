@@ -39,4 +39,4 @@ Flechas = mover PJ"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=180915732]
 script = ExtResource("7_y0801")
 
-[node name="HUD" parent="Camera2D" unique_id=265661405 instance=ExtResource("5_47xpy")]
+[node name="HUD" parent="." unique_id=265661405 instance=ExtResource("5_47xpy")]
