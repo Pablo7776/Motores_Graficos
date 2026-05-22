@@ -13,11 +13,16 @@ func update(player, delta):
 		player.anim.flip_h = direction < 0
 
 	# cuando vuelve al piso
-	if player.is_on_floor():
-		if direction == 0:
-			player.state_machine.change_state(player.state_machine.idle_state)
-		else:
-			player.state_machine.change_state(player.state_machine.run_state)
+	#if player.is_on_floor():
+	if direction == 0:
+		player.state_machine.change_state(player.state_machine.idle_state)
+	else:
+		player.state_machine.change_state(player.state_machine.run_state)
+	
+	if Input.is_action_just_pressed("atacar"):
+		player.state_machine.change_state(
+			player.state_machine.attack_state
+		)
 
 func exit(player):
 	pass
