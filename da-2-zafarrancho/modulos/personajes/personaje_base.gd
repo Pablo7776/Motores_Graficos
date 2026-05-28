@@ -85,3 +85,22 @@ func terminar_turno():
 func _on_health_manager_dead() -> void:
 	$StateMachine.change_state(state_machine.dead_state)
 	mori.emit()
+
+
+
+
+
+
+func _on_hitbox_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body is TileMapLayer:
+		#  Obtenemos la coordenada exacta
+		var posicion_del_hacha = $Hitbox.global_position 
+		var pos_local = body.to_local(posicion_del_hacha)
+		var celda_central = body.local_to_map(pos_local)
+		
+		for x in range(-3, 4):
+			for y in range(-3, 4):
+				var celda_a_borrar = celda_central + Vector2i(x, y)
+				
+				# Borramos la celda limpiamente
+				body.erase_cell(celda_a_borrar)
