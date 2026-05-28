@@ -7,7 +7,7 @@ extends TileMapLayer
 @export var ancho_dibujo_tiles: int = 80
 @export var alto_dibujo_tiles: int = 8
 
-# VARIABLES DE DESTRUCCIÓN ---
+# VARIABLES DE DESTRUCCIÓN 
 @export var radio_explosion_pixels: float = 48.0
 
 var generador_ruido = FastNoiseLite.new()
