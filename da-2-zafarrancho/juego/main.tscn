@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dnvdn8e7tarvj" path="res://Escenas/gestor_de_turnos.tscn" id="4_wpyno"]
 [ext_resource type="PackedScene" uid="uid://bl4kaog8ass5y" path="res://Escenas/Interfaz/hud.tscn" id="5_47xpy"]
 [ext_resource type="Script" uid="uid://cnbforull2oip" path="res://juego/camera_2d.gd" id="7_y0801"]
+[ext_resource type="Texture2D" uid="uid://4rors13fn3t7" path="res://Recursos/Assets_Visuales/UI/Circulo.png" id="7_y0801"]
+[ext_resource type="FontFile" uid="uid://cla3yyxnq4amh" path="res://Recursos/Tipografias/!SketchyTimes-b.ttf" id="8_d2hqu"]
 
 [node name="Main" type="Node2D" unique_id=2115022120]
 script = ExtResource("1_itpfl")
@@ -26,17 +28,29 @@ position = Vector2(309, 284)
 [node name="Escenario" parent="." unique_id=1811008819 instance=ExtResource("3_wpyno")]
 position = Vector2(590, 572)
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=951989123]
-offset_left = 865.0
-offset_top = 35.0
-offset_right = 1128.0
-offset_bottom = 280.0
-text = "teclas: 
+[node name="HUD" parent="." unique_id=265661405 instance=ExtResource("5_47xpy")]
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1186711854]
+offset_left = 779.0
+offset_top = 16.999998
+offset_right = 1290.0
+offset_bottom = 467.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_y0801")
+
+[node name="TextEdit" type="TextEdit" parent="TextureRect2" unique_id=951989123]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 165.71432
+offset_top = 131.42857
+offset_right = 428.71432
+offset_bottom = 376.4286
+theme_override_fonts/font = ExtResource("8_d2hqu")
+theme_override_font_sizes/font_size = 23
+text = "CONTROLES: 
 Esc = cambiar turno
 Ruedita del mouse = girar dado
-Flechas = mover PJ"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=180915732]
-script = ExtResource("7_y0801")
-
-[node name="HUD" parent="." unique_id=265661405 instance=ExtResource("5_47xpy")]
+Flechas = mover PJ
+¡Para comenzar tu turno
+tirá el dado!"
