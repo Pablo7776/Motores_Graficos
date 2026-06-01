@@ -34,6 +34,8 @@ func update(player, delta):
 		)
 
 		return
+		
+	
 
 
 func exit(player):
