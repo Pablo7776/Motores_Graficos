@@ -7,18 +7,13 @@ func enter(player):
 	player.play_animation("Attack")
 
 	var hitbox = player.get_node("Hitbox")
-
+	hitbox.set_direction(player.animacion.flip_h)
 	hitbox.attack()
 
 	await player.animacion.animation_finished
 
 	var direction = Input.get_axis("mover_izquierda", "mover_derecha")
 	
-	if direction > 0:
-		$"../../Hitbox".position.x = abs($"../../Hitbox".position.x)
-	elif direction < 0: # Caminar izquierda
-			# Invertimos el Hitbox a negativo (ej. -35)
-			$"../../Hitbox".position.x = -abs($"../../Hitbox".position.x)
 
 	if player.is_on_floor():
 

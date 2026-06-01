@@ -12,9 +12,9 @@ func _ready():
 
 
 func attack():
-
+	print("flip_h:", player.animacion.flip_h)
 	set_direction(player.animacion.flip_h)
-
+	print("flip_h:", player.animacion.flip_h)
 	activate()
 
 
@@ -43,6 +43,6 @@ func _on_area_entered(area):
 func set_direction(facing_left):
 
 	if facing_left:
-		scale.x = -1
+		position.x = -abs(position.x)
 	else:
-		scale.x = 1
+		position.x = abs(position.x)
