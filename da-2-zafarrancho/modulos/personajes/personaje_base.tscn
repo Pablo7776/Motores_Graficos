@@ -33,7 +33,7 @@ state_machine = NodePath("../StateMachine")
 [node name="Hurtbox" parent="." unique_id=788915030 instance=ExtResource("9_fqy2a")]
 
 [node name="Hitbox" parent="." unique_id=1959214690 instance=ExtResource("10_54fsg")]
-position = Vector2(46, -3)
+position = Vector2(84, -8)
 
 [node name="Dado" parent="." unique_id=1716550576 instance=ExtResource("11_54fsg")]
 position = Vector2(-11, -17)
