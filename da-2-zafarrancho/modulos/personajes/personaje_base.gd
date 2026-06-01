@@ -68,12 +68,9 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 
 	state_machine.update(delta)
-	#Esto hace que se termine el turno con esc	
-	if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
-			$Timer.stop()
-			terminar_turno()
 	move_and_slide()
 
+	
 func _on_timer_timeout() -> void:
 	terminar_turno()
 

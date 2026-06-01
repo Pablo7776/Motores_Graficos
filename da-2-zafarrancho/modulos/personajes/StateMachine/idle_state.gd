@@ -22,3 +22,8 @@ func update(player, delta):
 		player.state_machine.change_state(
 			player.state_machine.attack_state
 		)
+		
+	if Input.is_action_just_pressed("cambiar_turno"):
+		player.state_machine.change_state(
+			player.state_machine.fuera_de_turno
+		)
