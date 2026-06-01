@@ -8,6 +8,8 @@ var matriz_de_jugadores_personajes:=[]
 var turno_actual = 0
 @onready var hud = owner.find_child("HUD")
 signal cambiar_turno(pj, turno_actual)
+@export var camara: Camera2D
+
 
 func _ready() -> void:
 # Acá conecta una señal que se envía al apretar "iniciar partida" desde el menú de partida donde se establecen la cantida de jugadores y de personajes por jugador.
@@ -52,6 +54,7 @@ func crear_lista_de_turnos():
 			lista_de_turnos.append(pj)
 		turno_actual = 0
 		cambiar_turno.emit(lista_de_turnos[0], turno_actual)
+		camara.enfocar_en(lista_de_turnos[0])
 
 func siguiente_turno():
 	turno_actual = (turno_actual + 1) % lista_de_turnos.size()
@@ -61,6 +64,7 @@ func siguiente_turno():
 		siguiente_turno()
 		return
 	cambiar_turno.emit(pj, turno_actual)
+	camara.enfocar_en(pj)
 
 func _on_pj_mori(jugador_id,indice_en_equipo):
 	var pj = matriz_de_jugadores_personajes[jugador_id][indice_en_equipo]
