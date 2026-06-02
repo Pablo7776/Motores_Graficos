@@ -31,6 +31,7 @@ func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
 		dado.ya_tirado = false
 		#set_physics_process(false)
 		#$Timer.start(0)
+		state_machine.change_state(state_machine.esperando_state)
 		
 	else:
 		es_mi_turno = false
@@ -53,6 +54,7 @@ func _on_dado_valor(valor):
 	# El timer dura lo mismo que el valor del dado
 	$Timer.start(valor)
 	set_physics_process(true)
+	state_machine.change_state(state_machine.idle_state)
 
 func asignar_animacion():
 	if (jugador_id+1)%2 ==0:
