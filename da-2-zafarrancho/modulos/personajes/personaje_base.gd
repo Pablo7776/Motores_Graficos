@@ -11,6 +11,8 @@ const JUMP_VELOCITY = -400.0
 
 var jugador_id = 0
 var indice_en_equipo
+var es_mi_turno = false
+
 signal mori(jugador_id,indice_en_equipo)
 
 
@@ -23,14 +25,16 @@ func _ready():
 
 func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
 	if pj == self:
+		es_mi_turno = true
 		print("Es mi turno", self)
 		dado.activo = true
 		dado.ya_tirado = false
-		set_physics_process(false)
+		#set_physics_process(false)
 		#$Timer.start(0)
 		
 	else:
-		set_physics_process(false)
+		es_mi_turno = false
+		#set_physics_process(false)
 		dado.activo = false
 		$Timer.stop()
 		print("no es mi turno", self)

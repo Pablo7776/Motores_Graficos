@@ -15,6 +15,7 @@ func exit(player):
 	#player.set_physics_process(true)
 	pass
 
-func terminar_turno():
-
+func terminar_turno(player):
+	print("Termina turno:", name)
+	player.state_machine.change_state(player.state_machine.idle_state)
 	$"../GestorDeTurnos".siguiente_turno()
