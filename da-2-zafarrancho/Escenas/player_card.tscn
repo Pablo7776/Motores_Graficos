@@ -1,10 +1,20 @@
 [gd_scene format=3 uid="uid://cg7unfpyifuxr"]
 
+[ext_resource type="PackedScene" uid="uid://cr4dvwrecskuu" path="res://Escenas/Selector.tscn" id="1_am4v6"]
+
 [node name="Player Card" type="PanelContainer" unique_id=1217853958]
 offset_right = 203.0
 offset_bottom = 341.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=649013196]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" parent="VBoxContainer" unique_id=1972416541 instance=ExtResource("1_am4v6")]
+layout_mode = 2
+
+[node name="HBoxContainer2" parent="VBoxContainer" unique_id=1586361720 instance=ExtResource("1_am4v6")]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="." unique_id=248945602]

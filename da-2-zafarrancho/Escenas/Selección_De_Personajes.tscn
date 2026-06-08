@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dndjvrs5v21t7"]
 
+[ext_resource type="PackedScene" uid="uid://cg7unfpyifuxr" path="res://Escenas/player_card.tscn" id="1_wo1f7"]
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_v5v1l"]
 color = Color(1, 1, 1, 1)
 thickness = 3
@@ -45,16 +47,16 @@ layout_mode = 2
 theme_override_constants/separation = 3
 theme_override_styles/separator = SubResource("StyleBoxLine_v5v1l")
 
-[node name="Button" type="Button" parent="Panel" unique_id=650278264]
+[node name="volver" type="Button" parent="Panel" unique_id=650278264]
 layout_mode = 0
-offset_left = 380.0
+offset_left = 342.0
 offset_top = 608.0
-offset_right = 535.0
+offset_right = 497.0
 offset_bottom = 648.0
 theme_override_font_sizes/font_size = 23
 text = "     VOLVER     "
 
-[node name="Button2" type="Button" parent="Panel" unique_id=1000009281]
+[node name="continuar" type="Button" parent="Panel" unique_id=1000009281]
 layout_mode = 0
 offset_left = 652.0
 offset_top = 607.0
@@ -76,3 +78,6 @@ offset_right = 336.0
 offset_bottom = 246.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Player Card" parent="Panel/HBoxContainer" unique_id=1217853958 instance=ExtResource("1_wo1f7")]
+layout_mode = 2

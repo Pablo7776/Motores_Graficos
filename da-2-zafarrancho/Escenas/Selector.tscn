@@ -1,20 +1,23 @@
 [gd_scene format=3 uid="uid://cr4dvwrecskuu"]
 
+[ext_resource type="Script" uid="uid://cjrr7va0aeim8" path="res://selector.gd" id="1_iwtlm"]
+
 [node name="HBoxContainer" type="HBoxContainer" unique_id=1972416541]
 offset_right = 153.0
 offset_bottom = 31.0
 theme_override_constants/separation = 25
+script = ExtResource("1_iwtlm")
 
-[node name="Button" type="Button" parent="." unique_id=383627810]
+[node name="prev" type="Button" parent="." unique_id=383627810]
 layout_mode = 2
 text = "<"
 
-[node name="Nombre de Heroe" type="Label" parent="." unique_id=485424523]
+[node name="Nombre del Heroe" type="Label" parent="." unique_id=485424523]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 17
 text = "Bárbaro"
 
-[node name="Button2" type="Button" parent="." unique_id=1929381826]
+[node name="next" type="Button" parent="." unique_id=1929381826]
 layout_mode = 2
 text = ">"
