@@ -22,7 +22,7 @@ func _ready():
 
 func _on_iniciar_pressed() -> void:
 	iniciar.emit()
-	get_tree().change_scene_to_file("res://juego/main.tscn")
+	get_tree().change_scene_to_file("res://Escenas/Selección_De_Personajes.tscn")
 
 func _on_ajustes_pressed() -> void:
 	main_buttons.visible = false

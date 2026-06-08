@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dndjvrs5v21t7"]
 
+[ext_resource type="Script" uid="uid://pjqppgweibfr" path="res://Escenas/selección_de_personajes.gd" id="1_biufd"]
 [ext_resource type="PackedScene" uid="uid://cg7unfpyifuxr" path="res://Escenas/player_card.tscn" id="1_wo1f7"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_v5v1l"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_biufd")
 
 [node name="Panel" type="Panel" parent="." unique_id=282674228]
 layout_mode = 1
@@ -75,9 +77,22 @@ anchor_bottom = 0.5
 offset_left = -336.0
 offset_top = -175.0
 offset_right = 336.0
-offset_bottom = 246.0
+offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player Card" parent="Panel/HBoxContainer" unique_id=1217853958 instance=ExtResource("1_wo1f7")]
 layout_mode = 2
+
+[node name="agregar jugador" type="Button" parent="Panel" unique_id=1414111959]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 544.0
+offset_right = 394.0
+offset_bottom = 575.0
+text = "agregar jugador
+"
+
+[connection signal="pressed" from="Panel/volver" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="Panel/continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Panel/agregar jugador" to="." method="_on_agregar_jugador_pressed"]
