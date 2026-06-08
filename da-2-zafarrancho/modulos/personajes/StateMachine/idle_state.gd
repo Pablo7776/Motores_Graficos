@@ -4,7 +4,8 @@ func enter(player):
 	player.play_animation("Idle")
 
 func update(player, delta):
-
+	if not player.es_mi_turno:
+		return
 	var direction = Input.get_axis("mover_izquierda", "mover_derecha")
 
 	if direction != 0:
