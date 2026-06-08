@@ -82,12 +82,13 @@ func _on_timer_timeout() -> void:
 
 func terminar_turno():
 	state_machine.change_state(state_machine.idle_state)
+	await get_tree().create_timer(0.30)
 	$"../GestorDeTurnos".siguiente_turno()
 	
 
 func _on_health_manager_dead() -> void:
 	$StateMachine.change_state(state_machine.dead_state)
-	mori.emit()
+	mori.emit(jugador_id,indice_en_equipo)
 
 
 
