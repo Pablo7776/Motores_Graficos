@@ -62,7 +62,7 @@ func set_health(value: int):
 		var difference = clamped_value - health
 		health = value
 		health_changed.emit(difference)
-		
+		get_parent().get_node("ContadorDeVida").actualizar_barra()
 		if health == 0:
 			dead.emit()
 
