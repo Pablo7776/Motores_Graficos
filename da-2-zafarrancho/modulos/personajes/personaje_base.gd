@@ -20,6 +20,7 @@ func _ready():
 	asignar_animacion()
 	state_machine.init(self)
 	dado.dado_valor.connect(_on_dado_valor)
+	$ContadorDeVida.actualizar_barra()
 
 
 
