@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cg7unfpyifuxr"]
+
+[node name="Player Card" type="PanelContainer" unique_id=1217853958]
+offset_right = 203.0
+offset_bottom = 341.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=649013196]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=248945602]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 21
+text = "JUGADOR 1"
+
+[node name="Button" type="Button" parent="." unique_id=940770981]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
