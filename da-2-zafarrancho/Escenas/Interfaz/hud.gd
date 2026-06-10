@@ -11,7 +11,7 @@ func _on_dado_valor(valor):
 	$Timer.start(valor)
 
 
-func _on_gestor_cambiar_turno(pj, turno_actual):
+func _on_gestor_cambiar_turno(pj):
 
 	$Timer.stop()
 	# Desconectar dado anterior

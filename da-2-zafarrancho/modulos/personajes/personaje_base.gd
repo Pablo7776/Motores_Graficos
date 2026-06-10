@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -400.0
 @onready var animacion
 @onready var state_machine = $StateMachine
 @onready var dado = $Dado
-@onready var gestor_de_turnos = get_parent().get_node("res://Scripts/gestor_de_turnos.gd")
+@onready var gestor_de_turnos = get_parent().get_node("res://Escenas/gestor_de_turnos_v_2.tscn")
 
 var jugador_id = 0
 var indice_en_equipo
@@ -24,7 +24,7 @@ func _ready():
 
 
 
-func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
+func _on_cambiar_turno(pj): #✨Armado en Clase
 	if pj == self:
 		es_mi_turno = true
 		print("Es mi turno", self)
@@ -83,8 +83,8 @@ func _on_timer_timeout() -> void:
 
 func terminar_turno():
 	state_machine.change_state(state_machine.idle_state)
-	await get_tree().create_timer(0.30)
-	$"../GestorDeTurnos".siguiente_turno()
+	await get_tree().create_timer(0.30).timeout
+	$"../GestorDeTurnosV2".siguiente_turno()
 	
 
 func _on_health_manager_dead() -> void:
