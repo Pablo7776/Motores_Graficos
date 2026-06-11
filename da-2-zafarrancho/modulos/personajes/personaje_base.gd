@@ -7,13 +7,13 @@ const JUMP_VELOCITY = -400.0
 @onready var animacion
 @onready var state_machine = $StateMachine
 @onready var dado = $Dado
-@onready var gestor_de_turnos = get_parent().get_node("res://Escenas/gestor_de_turnos_v_2.tscn")
+@onready var gestor_de_turnos = get_parent().get_node("GestorDeTurnosV2")
 
 var jugador_id = 0
 var indice_en_equipo
 var es_mi_turno = false
 
-signal mori(jugador_id,indice_en_equipo)
+signal mori(personaje)
 
 
 func _ready():
@@ -89,7 +89,7 @@ func terminar_turno():
 
 func _on_health_manager_dead() -> void:
 	$StateMachine.change_state(state_machine.dead_state)
-	mori.emit(jugador_id,indice_en_equipo)
+	mori.emit(self)
 
 
 

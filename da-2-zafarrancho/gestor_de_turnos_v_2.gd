@@ -7,6 +7,7 @@ var equipos := {}
 var turno_jugador:int #contador de cuál jugador va
 var turno_personaje:int #contador de cuál pj va del jugador
 signal turno_de(node)
+signal jugador_vencido(n:int)
 @onready var hud = owner.find_child("HUD")
 @export var camara: Camera2D
 
@@ -47,6 +48,9 @@ func siguiente_turno():
 	seleccionar_pj()
 
 func seleccionar_pj():
+	if equipos[turno_jugador]["personajes_propios"].is_empty():
+		siguiente_turno()
+		return
 	equipos[turno_jugador]["turno_propio"]= (equipos[turno_jugador]["turno_propio"]+1)%equipos[turno_jugador]["personajes_propios"].size()
 	turno_personaje = equipos[turno_jugador]["turno_propio"]
 	var pj_activo = equipos[turno_jugador]["personajes_propios"][turno_personaje]
@@ -57,8 +61,11 @@ func seleccionar_pj():
 	turno_de.emit(pj_activo)
 	camara.enfocar_en(pj_activo)
 
-func _on_pj_mori(jugador_id,indice_en_equipo):
-	var pj_muerto = equipos[jugador_id]["personajes_propios"][indice_en_equipo]
+func _on_pj_mori(pj_muerto):
+	var jugador_id = pj_muerto.jugador_id
 	print(pj_muerto, "Matado")
 	equipos[jugador_id]["personajes_propios"].erase(pj_muerto)
 	pj_muerto.queue_free()
+	if equipos[jugador_id]["personajes_propios"].size() == 0:
+		jugador_vencido.emit(jugador_id+1)
+		print("Se murieron todos los PJ del jugador", jugador_id+1)

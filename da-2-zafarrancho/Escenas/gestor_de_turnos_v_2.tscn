@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://j8j8ha7vxusj"]
 
-[ext_resource type="Script" uid="uid://dqp4lcsrqh0ea" path="res://node.gd" id="1_5pygx"]
+[ext_resource type="Script" uid="uid://dqp4lcsrqh0ea" path="res://gestor_de_turnos_v_2.gd" id="1_5pygx"]
 
 [node name="GestorDeTurnosV2" type="Node" unique_id=729618565]
 script = ExtResource("1_5pygx")
