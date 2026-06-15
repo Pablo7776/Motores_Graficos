@@ -62,10 +62,11 @@ func seleccionar_pj():
 	camara.enfocar_en(pj_activo)
 
 func _on_pj_mori(pj_muerto):
-	var jugador_id = pj_muerto.jugador_id
-	print(pj_muerto, "Matado")
+	var jugador_id = pj_muerto.jugador_idd
 	equipos[jugador_id]["personajes_propios"].erase(pj_muerto)
 	pj_muerto.queue_free()
+	print("personaje eliminado: ", pj_muerto)
+	siguiente_turno()
 	if equipos[jugador_id]["personajes_propios"].size() == 0:
 		jugador_vencido.emit(jugador_id+1)
 		print("Se murieron todos los PJ del jugador", jugador_id+1)

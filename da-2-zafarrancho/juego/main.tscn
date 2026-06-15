@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cg8jxm2kr2c8m" path="res://Escenas/tile_map_layer.tscn" id="7_d2hqu"]
 [ext_resource type="Script" uid="uid://cnbforull2oip" path="res://juego/camera_2d.gd" id="7_y0801"]
 [ext_resource type="FontFile" uid="uid://cla3yyxnq4amh" path="res://Recursos/Tipografias/!SketchyTimes-b.ttf" id="8_d2hqu"]
+[ext_resource type="PackedScene" uid="uid://c3usr1i5yijrq" path="res://modulos/componentes/ZonaDeMuerte.tscn" id="8_t4pft"]
 
 [node name="Main" type="Node2D" unique_id=2115022120]
 script = ExtResource("1_itpfl")
@@ -55,3 +56,6 @@ tirá el dado!"
 [node name="TileMapLayer" parent="." unique_id=97606863 instance=ExtResource("7_d2hqu")]
 ancho_mundo = 110
 ancho_dibujo_tiles = 94
+
+[node name="ZonaDeMuerte" parent="." unique_id=1922654499 instance=ExtResource("8_t4pft")]
+position = Vector2(14, 1055)

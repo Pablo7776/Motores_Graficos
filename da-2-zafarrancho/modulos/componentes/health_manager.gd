@@ -57,7 +57,6 @@ func set_health(value: int):
 		return
 	
 	var clamped_value = clampi(value, 0, max_health) #Clampi es un metodo que sirve para fijar que una variable no baje de un minimo ni supere un max determinado
-	
 	if clamped_value != health:
 		var difference = clamped_value - health
 		health = value
