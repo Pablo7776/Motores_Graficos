@@ -10,6 +10,7 @@ signal turno_de(node)
 signal jugador_vencido(n:int)
 @onready var hud = owner.find_child("HUD")
 @export var camara: Camera2D
+@onready var spawner = get_parent().get_node("SpawnerPersonajes")
 
 func _ready() -> void:
 # Acá conecta una señal que se envía al apretar "iniciar partida" desde el menú de partida donde se establecen la cantida de jugadores y de personajes por jugador.
@@ -23,14 +24,16 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 	jugadores = cant_jugadores
 	personajes = cant_personajes
 	turno_personaje = 0
-	var personaje = preload("res://modulos/personajes/personaje_base.tscn")
+	#var personaje = preload("res://modulos/personajes/personaje_base.tscn")
 	for i in range(jugadores):
 		equipos[i] = {"turno_propio": turno_personaje, "personajes_propios":[]}
 		for j in range(personajes):
-			var nuevo_pj = personaje.instantiate()
-			nuevo_pj.position = Vector2(i * 200, j * 100)
-			nuevo_pj.jugador_id = i
-			nuevo_pj.indice_en_equipo = j
+			#var nuevo_pj = personaje.instantiate()
+			#var nuevo_pj = spawner.crear_personaje("base")
+			var nuevo_pj = spawner.crear_personaje("base", i, j)
+			#nuevo_pj.position = Vector2(i * 200, j * 100)
+			#nuevo_pj.jugador_id = i
+			#nuevo_pj.indice_en_equipo = j
 			turno_de.connect(nuevo_pj._on_cambiar_turno) #como llama a la función en el pj se puede mejorar para que sea mas claro
 			nuevo_pj.mori.connect(_on_pj_mori)
 			get_parent().add_child(nuevo_pj)
@@ -62,7 +65,7 @@ func seleccionar_pj():
 	camara.enfocar_en(pj_activo)
 
 func _on_pj_mori(pj_muerto):
-	var jugador_id = pj_muerto.jugador_idd
+	var jugador_id = pj_muerto.jugador_id
 	equipos[jugador_id]["personajes_propios"].erase(pj_muerto)
 	pj_muerto.queue_free()
 	print("personaje eliminado: ", pj_muerto)

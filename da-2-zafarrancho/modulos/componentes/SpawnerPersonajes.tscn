@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://llgpvb0lpvyo"]
+
+[ext_resource type="Script" uid="uid://btwta2pq7ipav" path="res://modulos/componentes/spawner_personajes.gd" id="1_vk8of"]
+
+[node name="SpawnerPersonajes" type="Node" unique_id=153230285]
+script = ExtResource("1_vk8of")
