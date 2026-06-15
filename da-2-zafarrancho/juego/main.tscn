@@ -9,9 +9,12 @@
 [ext_resource type="FontFile" uid="uid://cla3yyxnq4amh" path="res://Recursos/Tipografias/!SketchyTimes-b.ttf" id="8_d2hqu"]
 [ext_resource type="PackedScene" uid="uid://c3usr1i5yijrq" path="res://modulos/componentes/ZonaDeMuerte.tscn" id="8_t4pft"]
 [ext_resource type="PackedScene" uid="uid://llgpvb0lpvyo" path="res://modulos/componentes/SpawnerPersonajes.tscn" id="9_t4pft"]
+[ext_resource type="PackedScene" uid="uid://bujley8kmtnig" path="res://modulos/escenario/fondo.tscn" id="10_eu0op"]
 
 [node name="Main" type="Node2D" unique_id=2115022120]
 script = ExtResource("1_itpfl")
+
+[node name="Fondo" parent="." unique_id=662867499 instance=ExtResource("10_eu0op")]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1905305635]
 offset_right = 1151.2242
