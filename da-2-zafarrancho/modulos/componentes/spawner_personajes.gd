@@ -1,15 +1,26 @@
 extends Node
 class_name SpawnerPersonajes
 
-var personajes_disponibles = {
-	"base": preload("res://modulos/personajes/personaje_base.tscn"),
-	#"arquero": preload("res://modulos/personajes/arquero.tscn")
-	
-}
+
+@export var personaje_base : PackedScene
+@export var personaje_arquero : PackedScene
+@export var personaje_otro : PackedScene
 
 func crear_personaje(tipo:String, jugador_id:int, indice:int):
-	var pj = personajes_disponibles[tipo].instantiate()
+	var escena : PackedScene
+	
+	match tipo:
+		"base":
+			escena = personaje_base
 
+		"arquero":
+			escena = personaje_arquero
+			
+		"otro":
+			escena = personaje_otro
+
+	var pj = escena.instantiate()
+	
 	pj.position = Vector2(jugador_id * 200, indice * 100)
 	pj.jugador_id = jugador_id
 	pj.indice_en_equipo = indice
