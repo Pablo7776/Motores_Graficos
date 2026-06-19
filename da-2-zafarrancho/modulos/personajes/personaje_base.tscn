@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c0uofwdfjv136" path="res://modulos/personajes/personaje_base.gd" id="1_wi8ml"]
 [ext_resource type="PackedScene" uid="uid://cfrugvdsa3axp" path="res://modulos/personajes/StateMachine/StateMachine.tscn" id="6_hhlp6"]
 [ext_resource type="PackedScene" uid="uid://0jnxrsdc43aq" path="res://modulos/componentes/HealthManager.tscn" id="7_hhlp6"]
-[ext_resource type="Script" uid="uid://bkpqset04oo5t" path="res://contador_de_vida.gd" id="8_6ayea"]
+[ext_resource type="Script" path="res://contador_de_vida.gd" id="8_6ayea"]
 [ext_resource type="PackedScene" uid="uid://k7me60pusy4k" path="res://modulos/componentes/hurtbox.tscn" id="9_fqy2a"]
 [ext_resource type="PackedScene" uid="uid://6f6h65cunh3q" path="res://modulos/componentes/Hitbox.tscn" id="10_54fsg"]
 [ext_resource type="PackedScene" uid="uid://omrlmirhee5j" path="res://modulos/componentes/dados.tscn" id="11_54fsg"]
@@ -42,7 +42,6 @@ position = Vector2(-11, -17)
 [node name="ContadorDeVida" type="Node2D" parent="." unique_id=979510243]
 position = Vector2(-9, -62)
 script = ExtResource("8_6ayea")
-metadata/_custom_type_script = "uid://bkpqset04oo5t"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="dead" from="HealthManager" to="." method="_on_health_manager_dead"]
