@@ -2,6 +2,7 @@ extends Node2D
 class_name Dado
 
 signal dado_valor(valor)
+signal dados_girando()
 
 var cara := 1
 var girando := false
@@ -38,7 +39,7 @@ func _input(event):
 func tirar_dado():
 
 	girando = true
-
+	dados_girando.emit()
 	# Cantidad de cambios visuales antes de parar
 	var vueltas = randi_range(10, 20)
 

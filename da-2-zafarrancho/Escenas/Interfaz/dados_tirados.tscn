@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bmnrnosxdy5sp"]
+
+[ext_resource type="Texture2D" uid="uid://5sx3ivdnicyt" path="res://Recursos/Assets_Visuales/Objetos/particula_x.png" id="1_6pgxp"]
+[ext_resource type="Texture2D" uid="uid://brpaw5pr62vlg" path="res://Recursos/Assets_Visuales/Objetos/dados_lanzados.png" id="2_o1e72"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbxrb"]
+atlas = ExtResource("2_o1e72")
+region = Rect2(0, 0, 171, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gn7r"]
+atlas = ExtResource("2_o1e72")
+region = Rect2(171, 0, 171, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85ga3"]
+atlas = ExtResource("2_o1e72")
+region = Rect2(342, 0, 171, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glptc"]
+atlas = ExtResource("2_o1e72")
+region = Rect2(513, 0, 171, 157)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxetx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbxrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gn7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85ga3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glptc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DadosTirados" type="Node2D" unique_id=934820086]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=582921235]
+scale = Vector2(0.3, 0.3)
+emitting = false
+texture = ExtResource("1_6pgxp")
+lifetime = 0.29000000000000004
+lifetime_randomness = 0.69
+emission_shape = 1
+emission_sphere_radius = 82.7
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=310536597]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_lxetx")
+frame = 2
+frame_progress = 0.8780182
