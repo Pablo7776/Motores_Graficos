@@ -1,10 +1,15 @@
 extends State
+var sonido = preload("res://Escenas/audio_manager.tscn").instantiate()
 
 func enter(player):
 
 	player.velocity.x = 0
 
 	player.play_animation("Attack")
+
+	AudioManager.hacha_attack.play()
+
+	print("paso por aquí")
 
 	var hitbox = player.get_node("Hitbox")
 	hitbox.set_direction(player.animacion.flip_h)

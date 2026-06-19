@@ -17,6 +17,7 @@ signal mori(personaje)
 
 
 func _ready():
+	#var audio = preload("res://Escenas/audio_manager.tscn").instantiate()
 	asignar_animacion()
 	state_machine.init(self)
 	dado.dado_valor.connect(_on_dado_valor)

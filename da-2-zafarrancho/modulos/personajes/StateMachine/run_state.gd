@@ -2,6 +2,7 @@ extends State
 
 func enter(player):
 	player.play_animation("Run")
+	AudioManager.mov_sound.play()
 	print("CORRER")
 
 func update(player, delta):

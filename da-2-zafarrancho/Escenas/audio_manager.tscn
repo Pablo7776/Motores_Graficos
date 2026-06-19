@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bo8ff2bm72h8s"]
 
+[ext_resource type="Script" uid="uid://bvgnv4sv880ht" path="res://Escenas/audio_manager.gd" id="1_bduxh"]
 [ext_resource type="AudioStream" uid="uid://djl2ieqqnx1hd" path="res://Recursos/Audios/PJ/Hacha 1.mp3" id="1_fswfj"]
 [ext_resource type="AudioStream" uid="uid://dskfamwh5mqu0" path="res://Recursos/Audios/PJ/Hacha 2.mp3" id="2_bduxh"]
 [ext_resource type="AudioStream" uid="uid://3jsxg8ld6587" path="res://Recursos/Audios/PJ/Hacha 3.mp3" id="3_c5jke"]
@@ -7,26 +8,29 @@
 [ext_resource type="AudioStream" uid="uid://bnvfpfur50h1h" path="res://Recursos/Audios/PJ/Tirada 2.mp3" id="5_2obtn"]
 [ext_resource type="AudioStream" uid="uid://ctdagv5ry7kqu" path="res://Recursos/Audios/PJ/moverce.mp3" id="6_7h2p7"]
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_fswfj"]
+shuffle = true
+loop = false
+stream_count = 3
+stream_0 = ExtResource("1_fswfj")
+stream_1 = ExtResource("2_bduxh")
+stream_2 = ExtResource("3_c5jke")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_bduxh"]
+shuffle = true
+loop = false
+stream_count = 2
+stream_0 = ExtResource("4_x63eu")
+stream_1 = ExtResource("5_2obtn")
+
 [node name="AudioManager" type="Node" unique_id=780159011]
-
-[node name="Attack" type="Node" parent="." unique_id=1979358085]
-
-[node name="Hacha 1" type="AudioStreamPlayer2D" parent="Attack" unique_id=465277922]
-stream = ExtResource("1_fswfj")
-
-[node name="Hacha 2" type="AudioStreamPlayer2D" parent="Attack" unique_id=1044347197]
-stream = ExtResource("2_bduxh")
-
-[node name="Hacha 3" type="AudioStreamPlayer2D" parent="Attack" unique_id=474394936]
-stream = ExtResource("3_c5jke")
-
-[node name="Dado" type="Node" parent="." unique_id=363115211]
-
-[node name="Dado 1" type="AudioStreamPlayer2D" parent="Dado" unique_id=402484799]
-stream = ExtResource("4_x63eu")
-
-[node name="Dado 2" type="AudioStreamPlayer2D" parent="Dado" unique_id=849297946]
-stream = ExtResource("5_2obtn")
+script = ExtResource("1_bduxh")
 
 [node name="Mov" type="AudioStreamPlayer2D" parent="." unique_id=686210422]
 stream = ExtResource("6_7h2p7")
+
+[node name="Hacha_Attack" type="AudioStreamPlayer2D" parent="." unique_id=465277922]
+stream = SubResource("AudioStreamPlaylist_fswfj")
+
+[node name="Dado" type="AudioStreamPlayer2D" parent="." unique_id=402484799]
+stream = SubResource("AudioStreamPlaylist_bduxh")
