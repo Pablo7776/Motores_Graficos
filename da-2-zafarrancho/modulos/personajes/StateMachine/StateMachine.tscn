@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bdgxrhm7rllpf" path="res://modulos/personajes/StateMachine/attack_state.gd" id="5_gdue1"]
 [ext_resource type="Script" uid="uid://bgmupsgbayqec" path="res://modulos/personajes/StateMachine/fuera_de_turno.gd" id="5_gkfw2"]
 [ext_resource type="Script" uid="uid://cnayy6hsp77qm" path="res://modulos/personajes/StateMachine/dead_state.gd" id="7_fdmad"]
+[ext_resource type="Script" uid="uid://btq4b70iv0mdb" path="res://modulos/personajes/StateMachine/esperando.gd" id="8_u0i5g"]
 
 [node name="StateMachine" type="Node" unique_id=1018205208]
 script = ExtResource("1_odcu4")
@@ -28,3 +29,6 @@ script = ExtResource("5_gkfw2")
 
 [node name="DeadState" type="Node" parent="." unique_id=290247388]
 script = ExtResource("7_fdmad")
+
+[node name="Esperando" type="Node" parent="." unique_id=2064364745]
+script = ExtResource("8_u0i5g")

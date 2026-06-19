@@ -1,4 +1,5 @@
 extends Area2D
+class_name hurtbox
 
 @onready var health_manager = get_parent().get_node("HealthManager")
 

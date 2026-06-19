@@ -7,11 +7,13 @@ const JUMP_VELOCITY = -400.0
 @onready var animacion
 @onready var state_machine = $StateMachine
 @onready var dado = $Dado
-@onready var gestor_de_turnos = get_parent().get_node("res://Scripts/gestor_de_turnos.gd")
+@onready var gestor_de_turnos = get_parent().get_node("GestorDeTurnosV2")
 
 var jugador_id = 0
 var indice_en_equipo
-signal mori(jugador_id,indice_en_equipo)
+var es_mi_turno = false
+
+signal mori(personaje)
 
 
 func _ready():
@@ -19,19 +21,23 @@ func _ready():
 	asignar_animacion()
 	state_machine.init(self)
 	dado.dado_valor.connect(_on_dado_valor)
+	$ContadorDeVida.actualizar_barra()
 
 
 
-func _on_cambiar_turno(pj, turno_actual): #✨Armado en Clase
+func _on_cambiar_turno(pj): #✨Armado en Clase
 	if pj == self:
+		es_mi_turno = true
 		print("Es mi turno", self)
 		dado.activo = true
 		dado.ya_tirado = false
-		set_physics_process(false)
+		#set_physics_process(false)
 		#$Timer.start(0)
+		state_machine.change_state(state_machine.esperando_state)
 		
 	else:
-		set_physics_process(false)
+		es_mi_turno = false
+		#set_physics_process(false)
 		dado.activo = false
 		$Timer.stop()
 		print("no es mi turno", self)
@@ -50,6 +56,7 @@ func _on_dado_valor(valor):
 	# El timer dura lo mismo que el valor del dado
 	$Timer.start(valor)
 	set_physics_process(true)
+	state_machine.change_state(state_machine.idle_state)
 
 func asignar_animacion():
 	if (jugador_id+1)%2 ==0:
@@ -69,24 +76,21 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 
 	state_machine.update(delta)
-	#Esto hace que se termine el turno con esc	
-	if Input.is_action_just_pressed("ui_cancel") and is_on_floor():
-			$Timer.stop()
-			terminar_turno()
 	move_and_slide()
 
+	
 func _on_timer_timeout() -> void:
 	terminar_turno()
 
 func terminar_turno():
 	state_machine.change_state(state_machine.idle_state)
-	$"../GestorDeTurnos".siguiente_turno()
+	await get_tree().create_timer(0.30).timeout
+	$"../GestorDeTurnosV2".siguiente_turno()
 	
 
 func _on_health_manager_dead() -> void:
 	$StateMachine.change_state(state_machine.dead_state)
-	mori.emit()
-
+	mori.emit(self)
 
 
 

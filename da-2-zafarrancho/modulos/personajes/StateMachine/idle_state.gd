@@ -4,7 +4,8 @@ func enter(player):
 	player.play_animation("Idle")
 
 func update(player, delta):
-
+	if not player.es_mi_turno:
+		return
 	var direction = Input.get_axis("mover_izquierda", "mover_derecha")
 
 	if direction != 0:
@@ -21,4 +22,9 @@ func update(player, delta):
 	if Input.is_action_just_pressed("atacar"):
 		player.state_machine.change_state(
 			player.state_machine.attack_state
+		)
+		
+	if Input.is_action_just_pressed("cambiar_turno"):
+		player.state_machine.change_state(
+			player.state_machine.fuera_de_turno
 		)

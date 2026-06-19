@@ -9,6 +9,7 @@ var current_state
 @onready var attack_state = $AttackState
 @onready var dead_state = $DeadState
 @onready var fuera_de_turno = $FueraDeTurno  #✨Armado en Clase
+@onready var esperando_state = $Esperando
 
 func init(owner):
 	player = owner
