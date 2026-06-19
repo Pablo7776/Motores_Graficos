@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://j8j8ha7vxusj" path="res://Escenas/gestor_de_turnos_v_2.tscn" id="4_y0801"]
 [ext_resource type="PackedScene" uid="uid://bl4kaog8ass5y" path="res://Escenas/Interfaz/hud.tscn" id="5_47xpy"]
 [ext_resource type="PackedScene" uid="uid://cg8jxm2kr2c8m" path="res://Escenas/tile_map_layer.tscn" id="7_d2hqu"]
-[ext_resource type="Script" path="res://juego/camera_2d.gd" id="7_y0801"]
+[ext_resource type="Script" uid="uid://cnbforull2oip" path="res://juego/camera_2d.gd" id="7_y0801"]
 [ext_resource type="FontFile" uid="uid://cla3yyxnq4amh" path="res://Recursos/Tipografias/!SketchyTimes-b.ttf" id="8_d2hqu"]
 [ext_resource type="PackedScene" uid="uid://c3usr1i5yijrq" path="res://modulos/componentes/ZonaDeMuerte.tscn" id="8_t4pft"]
 [ext_resource type="PackedScene" uid="uid://llgpvb0lpvyo" path="res://modulos/componentes/SpawnerPersonajes.tscn" id="9_t4pft"]

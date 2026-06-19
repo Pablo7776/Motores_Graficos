@@ -2,7 +2,7 @@ extends State
 
 func enter(player):
 	player.play_animation("Jump")
-	AudioManager.dado.play()
+	AudioManager.play_dado()
  
 func update(player, delta):
 	var direction = Input.get_axis("mover_izquierda", "mover_izquierda")

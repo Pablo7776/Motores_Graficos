@@ -7,7 +7,7 @@ func enter(player):
 
 	player.play_animation("Attack")
 
-	AudioManager.hacha_attack.play()
+	AudioManager.play_hacha()
 
 	print("paso por aquí")
 
