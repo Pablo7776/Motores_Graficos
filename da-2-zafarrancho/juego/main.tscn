@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://31btwctqt2r4"]
 
 [ext_resource type="Script" uid="uid://bd8vekjx3u65n" path="res://juego/main.gd" id="1_itpfl"]
-[ext_resource type="Texture2D" uid="uid://d258sok61mg5i" path="res://Recursos/Assets_Visuales/Escenarios/Fondos/Cuadriculada.jpg" id="2_66ooa"]
+[ext_resource type="Texture2D" uid="uid://bjn1ktafjde2k" path="res://Recursos/Assets_Visuales/Escenarios/Fondos/fondo_hoja02.png" id="3_eu0op"]
 [ext_resource type="PackedScene" uid="uid://j8j8ha7vxusj" path="res://Escenas/gestor_de_turnos_v_2.tscn" id="4_y0801"]
 [ext_resource type="PackedScene" uid="uid://bl4kaog8ass5y" path="res://Escenas/Interfaz/hud.tscn" id="5_47xpy"]
 [ext_resource type="PackedScene" uid="uid://cg8jxm2kr2c8m" path="res://Escenas/tile_map_layer.tscn" id="7_d2hqu"]
-[ext_resource type="Script" path="res://juego/camera_2d.gd" id="7_y0801"]
+[ext_resource type="Script" uid="uid://cnbforull2oip" path="res://juego/camera_2d.gd" id="7_y0801"]
 [ext_resource type="FontFile" uid="uid://cla3yyxnq4amh" path="res://Recursos/Tipografias/!SketchyTimes-b.ttf" id="8_d2hqu"]
 [ext_resource type="PackedScene" uid="uid://c3usr1i5yijrq" path="res://modulos/componentes/ZonaDeMuerte.tscn" id="8_t4pft"]
 [ext_resource type="PackedScene" uid="uid://llgpvb0lpvyo" path="res://modulos/componentes/SpawnerPersonajes.tscn" id="9_t4pft"]
@@ -17,9 +17,11 @@ script = ExtResource("1_itpfl")
 [node name="Fondo" parent="." unique_id=662867499 instance=ExtResource("10_eu0op")]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1905305635]
-offset_right = 1151.2242
-offset_bottom = 860.0
-texture = ExtResource("2_66ooa")
+offset_left = -1500.0
+offset_top = -1016.0
+offset_right = 2561.92
+offset_bottom = 1744.0
+texture = ExtResource("3_eu0op")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=180915732]
 position_smoothing_enabled = true
