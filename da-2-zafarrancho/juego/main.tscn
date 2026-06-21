@@ -24,6 +24,7 @@ offset_bottom = 1744.0
 texture = ExtResource("3_eu0op")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=180915732]
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 script = ExtResource("7_y0801")
 
