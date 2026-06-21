@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://omrlmirhee5j"]
 
 [ext_resource type="Script" uid="uid://dg6xgho5bkyji" path="res://modulos/componentes/dados.gd" id="1_v4hh3"]
+[ext_resource type="FontFile" uid="uid://cla3yyxnq4amh" path="res://Recursos/Tipografias/!SketchyTimes-b.ttf" id="2_gvjer"]
 
 [node name="dado" type="Node2D" unique_id=1716550576]
 script = ExtResource("1_v4hh3")
@@ -8,3 +9,7 @@ script = ExtResource("1_v4hh3")
 [node name="Label" type="Label" parent="." unique_id=448460288]
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.05490196, 0.05490196, 0.05490196, 1)
+theme_override_fonts/font = ExtResource("2_gvjer")
+theme_override_font_sizes/font_size = 32

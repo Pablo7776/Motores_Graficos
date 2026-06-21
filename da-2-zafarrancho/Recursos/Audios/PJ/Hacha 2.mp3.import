@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dskfamwh5mqu0"
+path="res://.godot/imported/Hacha 2.mp3-6b9e5a52f84e6c5f366f8a16299982c5.mp3str"
+
+[deps]
+
+source_file="res://Recursos/Audios/PJ/Hacha 2.mp3"
+dest_files=["res://.godot/imported/Hacha 2.mp3-6b9e5a52f84e6c5f366f8a16299982c5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,5 @@
 extends State
+var sonido = preload("res://Escenas/audio_manager.tscn").instantiate()
 
 func enter(player):
 
@@ -6,13 +7,18 @@ func enter(player):
 
 	player.play_animation("Attack")
 
-	var hitbox = player.get_node("Hitbox")
+	AudioManager.play_hacha()
 
+	print("paso por aquí")
+
+	var hitbox = player.get_node("Hitbox")
+	hitbox.set_direction(player.animacion.flip_h)
 	hitbox.attack()
 
-	await player.anim.animation_finished
+	await player.animacion.animation_finished
 
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("mover_izquierda", "mover_derecha")
+	
 
 	if player.is_on_floor():
 
