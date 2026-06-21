@@ -3,9 +3,14 @@ class_name Hud
 
 var pj_actual
 
+func _on_dado_girando():
+	$DadosTirados/AnimatedSprite2D.play()
+	$DadosTirados/CPUParticles2D.emitting = true
+	pass
 
 func _on_dado_valor(valor):
-
+	$DadosTirados/AnimatedSprite2D.stop()
+	$DadosTirados/CPUParticles2D.emitting = false
 	print("Valor del dado:", valor)
 
 	$Timer.start(valor)
@@ -27,6 +32,7 @@ func _on_gestor_cambiar_turno(pj):
 	# Conectar nuevo dado
 	
 	pj_actual.dado.dado_valor.connect(_on_dado_valor)
+	pj_actual.dado.dados_girando.connect(_on_dado_girando)
 
 	_mostrar_turno()
 

@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cu5bs68lh8x5l" path="res://Escenas/Interfaz/hud.gd" id="1_owbtu"]
 [ext_resource type="FontFile" uid="uid://cla3yyxnq4amh" path="res://Recursos/Tipografias/!SketchyTimes-b.ttf" id="2_0h31l"]
+[ext_resource type="PackedScene" uid="uid://bmnrnosxdy5sp" path="res://Escenas/Interfaz/dados_tirados.tscn" id="3_0h31l"]
 
 [node name="HUD" type="Node2D" unique_id=265661405]
 script = ExtResource("1_owbtu")
 
 [node name="Tiempo" type="Label" parent="." unique_id=1424201482]
-offset_left = 531.5
+offset_left = 584.5
 offset_top = 22.0
-offset_right = 620.5
+offset_right = 673.5
 offset_bottom = 50.0
 theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
 theme_override_colors/font_outline_color = Color(0.055712584, 0.055712584, 0.055712584, 1)
@@ -27,3 +28,6 @@ offset_bottom = 52.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.05490196, 0.05490196, 0.05490196, 1)
 theme_override_fonts/font = ExtResource("2_0h31l")
+
+[node name="DadosTirados" parent="." unique_id=934820086 instance=ExtResource("3_0h31l")]
+position = Vector2(554, 35)
