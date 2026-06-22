@@ -2,6 +2,7 @@ extends State
 
 func enter(player):
 	player.play_animation("Jump")
+	#AudioManager.mov_sound.stop() VER DE COMO DETENER EL SONID DE MOV CUANDO SALTA
 	AudioManager.play_dado()
  
 func update(player, delta):
