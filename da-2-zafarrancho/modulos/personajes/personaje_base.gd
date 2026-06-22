@@ -5,6 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 @onready var animacion
+@onready var visuales_flipeables: Node2D = $VisualesFlipeables
 @onready var state_machine = $StateMachine
 @onready var dado = $Dado
 @onready var gestor_de_turnos = get_parent().get_node("GestorDeTurnosV2")
@@ -59,14 +60,22 @@ func _on_dado_valor(valor):
 	state_machine.change_state(state_machine.idle_state)
 
 func asignar_animacion():
+	"""
 	if (jugador_id+1)%2 ==0:
 		animacion = preload("res://Escenas/Personajes/sprite_pj_2.tscn").instantiate()
 	else:
 		animacion = preload("res://Escenas/Personajes/sprite_pj_1.tscn").instantiate()
 	add_child(animacion)
 	move_child(animacion,0)
-
-
+	"""
+	#animacion = $VisualesFlipeables/SpritePJ1
+	
+	for child in visuales_flipeables.get_children():
+		if child.has_method("play"):
+			animacion = child
+			break
+	
+	
 func play_animation(anim_name):
 	print(animacion)
 	animacion.play(anim_name)
@@ -99,7 +108,7 @@ func _on_health_manager_dead() -> void:
 func _on_hitbox_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body is TileMapLayer:
 		#  Obtenemos la coordenada exacta
-		var posicion_del_hacha = $Hitbox.global_position 
+		var posicion_del_hacha = visuales_flipeables.get_node("Hitbox").global_position
 		var pos_local = body.to_local(posicion_del_hacha)
 		var celda_central = body.local_to_map(pos_local)
 		

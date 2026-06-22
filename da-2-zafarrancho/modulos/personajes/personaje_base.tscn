@@ -13,6 +13,7 @@
 size = Vector2(44, 73)
 
 [node name="PersonajeBase" type="CharacterBody2D" unique_id=1880926583]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_wi8ml")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=783236758]
@@ -33,8 +34,10 @@ state_machine = NodePath("../StateMachine")
 
 [node name="Hurtbox" parent="." unique_id=788915030 instance=ExtResource("9_fqy2a")]
 
-[node name="Hitbox" parent="." unique_id=1959214690 instance=ExtResource("10_54fsg")]
-position = Vector2(84, -8)
+[node name="VisualesFlipeables" type="Node2D" parent="." unique_id=416265463]
+
+[node name="Hitbox" parent="VisualesFlipeables" unique_id=1959214690 instance=ExtResource("10_54fsg")]
+position = Vector2(66, -32)
 
 [node name="Dado" parent="." unique_id=1716550576 instance=ExtResource("11_54fsg")]
 position = Vector2(-11, -17)
@@ -45,4 +48,4 @@ script = ExtResource("8_6ayea")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="dead" from="HealthManager" to="." method="_on_health_manager_dead"]
-[connection signal="body_shape_entered" from="Hitbox" to="." method="_on_hitbox_body_shape_entered"]
+[connection signal="body_shape_entered" from="VisualesFlipeables/Hitbox" to="." method="_on_hitbox_body_shape_entered"]

@@ -30,7 +30,7 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 		for j in range(personajes):
 			#var nuevo_pj = personaje.instantiate()
 			#var nuevo_pj = spawner.crear_personaje("base")
-			var nuevo_pj = spawner.crear_personaje("base", i, j)
+			var nuevo_pj = spawner.crear_personaje("cazador", i, j)
 			#nuevo_pj.position = Vector2(i * 200, j * 100)
 			#nuevo_pj.jugador_id = i
 			#nuevo_pj.indice_en_equipo = j

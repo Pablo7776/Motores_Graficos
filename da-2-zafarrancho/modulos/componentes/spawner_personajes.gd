@@ -3,7 +3,7 @@ class_name SpawnerPersonajes
 
 
 @export var personaje_base : PackedScene
-@export var personaje_arquero : PackedScene
+@export var personaje_cazador : PackedScene
 @export var personaje_otro : PackedScene
 
 func crear_personaje(tipo:String, jugador_id:int, indice:int):
@@ -13,8 +13,8 @@ func crear_personaje(tipo:String, jugador_id:int, indice:int):
 		"base":
 			escena = personaje_base
 
-		"arquero":
-			escena = personaje_arquero
+		"cazador":
+			escena = personaje_cazador
 			
 		"otro":
 			escena = personaje_otro

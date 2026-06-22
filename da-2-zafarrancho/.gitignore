@@ -1,3 +1,7 @@
 # Godot 4+ specific ignores
+
+# guarda cachés, importaciones y archivos generados automáticamente por Godot. Conviene ignorarla.
 .godot/
+
+# si Godot generó la plantilla de exportación Android dentro del proyecto, suele ser mejor no subirla porque puede regenerarse.
 /android/
