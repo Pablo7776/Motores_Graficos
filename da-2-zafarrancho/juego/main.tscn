@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://c3usr1i5yijrq" path="res://modulos/componentes/ZonaDeMuerte.tscn" id="8_t4pft"]
 [ext_resource type="PackedScene" uid="uid://llgpvb0lpvyo" path="res://modulos/componentes/SpawnerPersonajes.tscn" id="9_t4pft"]
 [ext_resource type="PackedScene" uid="uid://bujley8kmtnig" path="res://modulos/escenario/fondo.tscn" id="10_eu0op"]
-[ext_resource type="PackedScene" uid="uid://3r1jqrkg2kk4" path="res://modulos/escenario/node.tscn" id="11_3510d"]
 
 [node name="Main" type="Node2D" unique_id=2115022120]
 script = ExtResource("1_itpfl")
@@ -30,8 +29,6 @@ position_smoothing_enabled = true
 script = ExtResource("7_y0801")
 
 [node name="GestorDeTurnosV2" parent="." unique_id=729618565 node_paths=PackedStringArray("camara") instance=ExtResource("4_y0801")]
-jugadores = 2
-personajes = 4
 camara = NodePath("../Camera2D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1302954818]
@@ -71,5 +68,3 @@ ancho_dibujo_tiles = 94
 position = Vector2(14, 1055)
 
 [node name="SpawnerPersonajes" parent="." unique_id=153230285 instance=ExtResource("9_t4pft")]
-
-[node name="Spawn" parent="." unique_id=1887839743 instance=ExtResource("11_3510d")]
