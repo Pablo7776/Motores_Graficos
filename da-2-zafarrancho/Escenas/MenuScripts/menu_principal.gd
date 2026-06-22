@@ -26,7 +26,7 @@ func _on_iniciar_pressed() -> void:
 	DatosPartida.personajes = 4
 	#get_tree().change_scene_to_file("res://juego/main.tscn")
 
-	iniciar.emit()
+	#iniciar.emit()
 	get_tree().change_scene_to_file("res://Escenas/Selección_De_Personajes.tscn")
 
 
