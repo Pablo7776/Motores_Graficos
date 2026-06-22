@@ -6,6 +6,8 @@ extends  Node
 @onready var hacha_attack03 = $HachaSouds/Hacha_Attack_03
 @onready var dado1 = $Salto/Dado1
 @onready var dado2 = $Salto/Dado2
+@onready var select = $UI/Select
+@onready var play = $UI/Play
 
 
 func play_hacha():

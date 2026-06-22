@@ -57,4 +57,5 @@ func _on_volver_pressed() -> void:
 
 func _on_continuar_pressed() -> void:
 	DatosPartida.jugadores = hbox.get_child_count()
+	AudioManager.play.play()
 	get_tree().change_scene_to_file("res://juego/main.tscn")
