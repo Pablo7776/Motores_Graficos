@@ -27,8 +27,8 @@ func _on_iniciar_pressed() -> void:
 	get_tree().change_scene_to_file("res://juego/main.tscn")
 
 func _on_ajustes_pressed() -> void:
-	main_buttons.visible = false
 	AudioManager.select.play()
+	main_buttons.visible = false
 	opciones.visible = true
 
 func _on_salir_pressed() -> void:
