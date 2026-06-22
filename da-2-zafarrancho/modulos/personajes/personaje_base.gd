@@ -68,8 +68,14 @@ func asignar_animacion():
 	add_child(animacion)
 	move_child(animacion,0)
 	"""
-	animacion = $VisualesFlipeables/SpritePJ1
-
+	#animacion = $VisualesFlipeables/SpritePJ1
+	
+	for child in visuales_flipeables.get_children():
+		if child.has_method("play"):
+			animacion = child
+			break
+	
+	
 func play_animation(anim_name):
 	print(animacion)
 	animacion.play(anim_name)
