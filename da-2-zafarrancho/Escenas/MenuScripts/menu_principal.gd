@@ -23,10 +23,12 @@ func _ready():
 func _on_iniciar_pressed() -> void:
 	DatosPartida.jugadores = 2
 	DatosPartida.personajes = 4
+	AudioManager.play.play()
 	get_tree().change_scene_to_file("res://juego/main.tscn")
 
 func _on_ajustes_pressed() -> void:
 	main_buttons.visible = false
+	AudioManager.select.play()
 	opciones.visible = true
 
 func _on_salir_pressed() -> void:
@@ -34,6 +36,7 @@ func _on_salir_pressed() -> void:
 
 func _on_volver_pressed() -> void:
 	main_buttons.visible = true
+	AudioManager.select.play()
 	opciones.visible = false
 
 
