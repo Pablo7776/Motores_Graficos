@@ -8,29 +8,33 @@
 [ext_resource type="AudioStream" uid="uid://bnvfpfur50h1h" path="res://Recursos/Audios/PJ/Tirada 2.mp3" id="5_2obtn"]
 [ext_resource type="AudioStream" uid="uid://ctdagv5ry7kqu" path="res://Recursos/Audios/PJ/moverce.mp3" id="6_7h2p7"]
 
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_fswfj"]
-shuffle = true
-loop = false
-stream_count = 3
-stream_0 = ExtResource("1_fswfj")
-stream_1 = ExtResource("2_bduxh")
-stream_2 = ExtResource("3_c5jke")
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_bduxh"]
-shuffle = true
-loop = false
-stream_count = 2
-stream_0 = ExtResource("4_x63eu")
-stream_1 = ExtResource("5_2obtn")
-
 [node name="AudioManager" type="Node" unique_id=780159011]
 script = ExtResource("1_bduxh")
 
 [node name="Mov" type="AudioStreamPlayer2D" parent="." unique_id=686210422]
 stream = ExtResource("6_7h2p7")
+volume_db = 10.0
 
-[node name="Hacha_Attack" type="AudioStreamPlayer2D" parent="." unique_id=465277922]
-stream = SubResource("AudioStreamPlaylist_fswfj")
+[node name="HachaSouds" type="Node" parent="." unique_id=1597468443]
 
-[node name="Dado" type="AudioStreamPlayer2D" parent="." unique_id=402484799]
-stream = SubResource("AudioStreamPlaylist_bduxh")
+[node name="Hacha_Attack_01" type="AudioStreamPlayer2D" parent="HachaSouds" unique_id=465277922]
+stream = ExtResource("1_fswfj")
+volume_db = 8.0
+
+[node name="Hacha_Attack_02" type="AudioStreamPlayer2D" parent="HachaSouds" unique_id=1140938833]
+stream = ExtResource("2_bduxh")
+volume_db = 8.0
+
+[node name="Hacha_Attack_03" type="AudioStreamPlayer2D" parent="HachaSouds" unique_id=907188980]
+stream = ExtResource("3_c5jke")
+volume_db = 8.0
+
+[node name="Salto" type="Node" parent="." unique_id=527065243]
+
+[node name="Dado1" type="AudioStreamPlayer2D" parent="Salto" unique_id=402484799]
+stream = ExtResource("4_x63eu")
+volume_db = 8.0
+
+[node name="Dado2" type="AudioStreamPlayer2D" parent="Salto" unique_id=1495372991]
+stream = ExtResource("5_2obtn")
+volume_db = 8.0

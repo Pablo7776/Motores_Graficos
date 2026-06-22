@@ -2,7 +2,8 @@ extends State
 
 func enter(player):
 	player.play_animation("Run")
-	AudioManager.mov_sound.play()
+	if !AudioManager.mov_sound.playing:
+		AudioManager.mov_sound.play()
 	print("CORRER")
 
 func update(player, delta):
@@ -41,3 +42,4 @@ func update(player, delta):
 
 func exit(player):
 	player.velocity.x = 0
+	AudioManager.mov_sound.stop()
