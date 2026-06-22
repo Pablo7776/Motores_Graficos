@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://pjqppgweibfr" path="res://Escenas/selección_de_personajes.gd" id="1_biufd"]
 [ext_resource type="PackedScene" uid="uid://cg7unfpyifuxr" path="res://Escenas/player_card.tscn" id="1_wo1f7"]
+[ext_resource type="PackedScene" uid="uid://dfawo2a6p1t1k" path="res://Escenas/notas.tscn" id="3_mw22s"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_v5v1l"]
 color = Color(1, 1, 1, 1)
@@ -92,6 +93,15 @@ offset_right = 394.0
 offset_bottom = 575.0
 text = "agregar jugador
 "
+
+[node name="Notas" parent="." unique_id=1418913493 instance=ExtResource("3_mw22s")]
+layout_mode = 1
+offset_left = 850.0
+offset_top = 368.0
+offset_right = -33.0
+offset_bottom = -67.0
+text = "aun falta configurar los tipos 
+de personaje"
 
 [connection signal="pressed" from="Panel/volver" to="." method="_on_volver_pressed"]
 [connection signal="pressed" from="Panel/continuar" to="." method="_on_continuar_pressed"]
