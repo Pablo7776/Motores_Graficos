@@ -21,9 +21,14 @@ func _ready():
 #Botones del menú
 
 func _on_iniciar_pressed() -> void:
+
 	DatosPartida.jugadores = 2
 	DatosPartida.personajes = 4
-	get_tree().change_scene_to_file("res://juego/main.tscn")
+	#get_tree().change_scene_to_file("res://juego/main.tscn")
+
+	iniciar.emit()
+	get_tree().change_scene_to_file("res://Escenas/Selección_De_Personajes.tscn")
+
 
 func _on_ajustes_pressed() -> void:
 	main_buttons.visible = false
