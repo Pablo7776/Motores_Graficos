@@ -35,13 +35,6 @@ state_machine = NodePath("../StateMachine")
 
 [node name="Hurtbox" parent="." unique_id=788915030 instance=ExtResource("9_fqy2a")]
 
-[node name="Dado" parent="." unique_id=1716550576 instance=ExtResource("11_54fsg")]
-position = Vector2(-11, -17)
-
-[node name="ContadorDeVida" type="Node2D" parent="." unique_id=979510243]
-position = Vector2(-9, -62)
-script = ExtResource("8_6ayea")
-
 [node name="VisualesFlipeables" type="Node2D" parent="." unique_id=416265463]
 
 [node name="Hitbox" parent="VisualesFlipeables" unique_id=1959214690 instance=ExtResource("10_54fsg")]
@@ -49,6 +42,13 @@ position = Vector2(66, -32)
 
 [node name="SpritePJ1" parent="VisualesFlipeables" unique_id=539056300 instance=ExtResource("9_1mfgc")]
 position = Vector2(-1, -4.5)
+
+[node name="Dado" parent="." unique_id=1716550576 instance=ExtResource("11_54fsg")]
+position = Vector2(-11, -17)
+
+[node name="ContadorDeVida" type="Node2D" parent="." unique_id=979510243]
+position = Vector2(-9, -62)
+script = ExtResource("8_6ayea")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="dead" from="HealthManager" to="." method="_on_health_manager_dead"]
