@@ -8,7 +8,7 @@ extends  Node
 @onready var dado2 = $Salto/Dado2
 @onready var select = $UI/Select
 @onready var play = $UI/Play
-
+@onready var end = $UI/Win
 
 func play_hacha():
 	var hacha_sounds = [ hacha_attack01, hacha_attack02, hacha_attack03 ]
