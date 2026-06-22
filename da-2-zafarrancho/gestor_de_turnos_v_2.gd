@@ -23,6 +23,9 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 	equipos.clear()
 	jugadores = cant_jugadores
 	personajes = cant_personajes
+	await get_tree().create_timer(0.5).timeout
+	
+	turno_personaje = 0
 	turno_personaje = 0
 	#var personaje = preload("res://modulos/personajes/personaje_base.tscn")
 	for i in range(jugadores):
@@ -34,6 +37,7 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 			#nuevo_pj.position = Vector2(i * 200, j * 100)
 			#nuevo_pj.jugador_id = i
 			#nuevo_pj.indice_en_equipo = j
+			nuevo_pj.global_position = obtener_posicion_suelo()
 			turno_de.connect(nuevo_pj._on_cambiar_turno) #como llama a la función en el pj se puede mejorar para que sea mas claro
 			nuevo_pj.mori.connect(_on_pj_mori)
 			get_parent().add_child(nuevo_pj)
@@ -73,3 +77,28 @@ func _on_pj_mori(pj_muerto):
 	if equipos[jugador_id]["personajes_propios"].size() == 0:
 		jugador_vencido.emit(jugador_id+1)
 		print("Se murieron todos los PJ del jugador", jugador_id+1)
+		
+		
+func obtener_posicion_suelo(intentos: int = 0) -> Vector2:
+	# Si después de 50 intentos no encuentra piso, lo tira en el medio por seguridad
+	if intentos > 50:
+		return Vector2(randf_range(100, 1000), 0)
+
+	#  Elegimos un punto X aleatorio (ajusta el 1100 al ancho de tu mapa)
+	var x_aleatorio = randf_range(50, 1100) 
+	
+	#  Trazamos un rayo láser invisible desde el cielo (-500) hasta el abismo (2000)
+	var inicio = Vector2(x_aleatorio, -500)
+	var fin = Vector2(x_aleatorio, 2000)
+	var query = PhysicsRayQueryParameters2D.create(inicio, fin)
+	
+	#  Disparamos el rayo
+	var espacio = camara.get_world_2d().direct_space_state
+	var resultado = espacio.intersect_ray(query)
+
+	# Si chocó con el suelo (TileMap), devolvemos esa coordenada
+	if resultado:
+		return resultado.position
+	else:
+		# Si cayó al vacío, volvemos a intentar
+		return obtener_posicion_suelo(intentos + 1)

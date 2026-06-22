@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://3r1jqrkg2kk4"]
+
+[ext_resource type="Script" path="res://modulos/escenario/spawn.gd" id="1_86451"]
+[ext_resource type="PackedScene" uid="uid://canl8j7cm4psw" path="res://modulos/personajes/personaje_base.tscn" id="2_1mb0o"]
+
+[node name="Spawn" type="Node2D" unique_id=1887839743]
+script = ExtResource("1_86451")
+character_scene = ExtResource("2_1mb0o")

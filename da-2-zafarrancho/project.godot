@@ -22,8 +22,8 @@ buses/default_bus_layout="uid://bwq78fhnu4mna"
 [autoload]
 
 MusicManager="*uid://dt3e6wkui2x4f"
-DatosPartida="*uid://rvumhuejgivc"
 AudioManager="*uid://bo8ff2bm72h8s"
+DatosPartida="*uid://g0x5fjobi18d"
 
 [display]
 
@@ -76,3 +76,4 @@ cambiar_turno={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

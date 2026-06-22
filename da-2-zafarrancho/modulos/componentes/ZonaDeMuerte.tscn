@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ca8ghsw8cv1c8" path="res://modulos/componentes/zona_de_muerte.gd" id="1_islt2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b22af"]
-size = Vector2(1844, 20)
+size = Vector2(2588, 20)
 
 [node name="ZonaDeMuerte" type="Area2D" unique_id=1922654499]
 script = ExtResource("1_islt2")
