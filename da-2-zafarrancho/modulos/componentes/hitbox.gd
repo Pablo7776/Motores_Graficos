@@ -12,9 +12,9 @@ func _ready():
 
 
 func attack():
-	print("flip_h:", player.animacion.flip_h)
-	set_direction(player.animacion.flip_h)
-	print("flip_h:", player.animacion.flip_h)
+	#print("flip_h:", player.animacion.flip_h)
+	#set_direction(player.animacion.flip_h)
+	#print("flip_h:", player.animacion.flip_h)
 	activate()
 
 
