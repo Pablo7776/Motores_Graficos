@@ -68,3 +68,5 @@ ancho_dibujo_tiles = 94
 position = Vector2(14, 1055)
 
 [node name="SpawnerPersonajes" parent="." unique_id=153230285 instance=ExtResource("9_t4pft")]
+
+[connection signal="victoria" from="GestorDeTurnosV2" to="." method="_on_gestor_de_turnos_v_2_victoria"]
