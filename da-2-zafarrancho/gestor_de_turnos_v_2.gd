@@ -19,7 +19,8 @@ func _ready() -> void:
 # Acá conecta una señal que se envía al apretar "iniciar partida" desde el menú de partida donde se establecen la cantida de jugadores y de personajes por jugador.
 	get_parent().iniciar.connect(_on_menu_de_partida_iniciar)  #✨Armado en Clase
 	turno_de.connect(hud._on_gestor_cambiar_turno) #como llama a la función en el hud se puede mejorar para que sea mas claro
-
+	partida_terminada.connect(_on_partida_terminada)
+	
 #acá se crean los personajes, las listas de jugadores y de equipos, a partir de los datos del menú de partida
 func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes, clases_elegidas: Array = []) -> void:
 	lista_jugadores.clear()

@@ -17,20 +17,15 @@ func _on_dado_valor(valor):
 
 
 func _on_gestor_cambiar_turno(pj):
-
 	$Timer.stop()
 	# Desconectar dado anterior
 	if pj_actual != null:
-
 		if pj_actual.dado.dado_valor.is_connected(_on_dado_valor):
-
 			pj_actual.dado.dado_valor.disconnect(_on_dado_valor)
 
 	# Cambiar personaje actual
 	pj_actual = pj
-
 	# Conectar nuevo dado
-	
 	pj_actual.dado.dado_valor.connect(_on_dado_valor)
 	pj_actual.dado.dados_girando.connect(_on_dado_girando)
 
