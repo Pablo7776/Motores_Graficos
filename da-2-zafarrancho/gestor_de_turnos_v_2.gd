@@ -11,6 +11,7 @@ signal jugador_vencido(n:int)
 @onready var hud = owner.find_child("HUD")
 @export var camara: Camera2D
 @onready var spawner = get_parent().get_node("SpawnerPersonajes")
+var personaje_activo
 
 func _ready() -> void:
 # Acá conecta una señal que se envía al apretar "iniciar partida" desde el menú de partida donde se establecen la cantida de jugadores y de personajes por jugador.
@@ -61,6 +62,7 @@ func seleccionar_pj():
 		equipos[turno_jugador]["personajes_propios"].erase(pj_activo)
 		siguiente_turno()
 		return
+	personaje_activo = pj_activo
 	turno_de.emit(pj_activo)
 	camara.enfocar_en(pj_activo)
 
@@ -69,7 +71,8 @@ func _on_pj_mori(pj_muerto):
 	equipos[jugador_id]["personajes_propios"].erase(pj_muerto)
 	pj_muerto.queue_free()
 	print("personaje eliminado: ", pj_muerto)
-	siguiente_turno()
+	if pj_muerto == self:
+		siguiente_turno()
 	if equipos[jugador_id]["personajes_propios"].size() == 0:
 		jugador_vencido.emit(jugador_id+1)
 		print("Se murieron todos los PJ del jugador", jugador_id+1)
