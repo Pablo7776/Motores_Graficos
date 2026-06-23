@@ -57,15 +57,17 @@ func _on_volver_pressed() -> void:
 
 func _on_continuar_pressed() -> void:
 	AudioManager.play.play()
+	_guardar_datos_partida()
+	DatosPartida.debug()
+	get_tree().change_scene_to_file("res://juego/main.tscn")
+	
+	
+func _guardar_datos_partida() -> void:
 	var cards = hbox.get_children()
 
-	DatosPartida.cantidad_jugadores = cards.size() 
+	DatosPartida.cantidad_jugadores = cards.size()
+	DatosPartida.personajes_por_jugador = 4
 	DatosPartida.personajes_seleccionados = []
 
-	for i in range(cards.size()):
-		var card = cards[i]
-
+	for card in cards:
 		DatosPartida.personajes_seleccionados.append(card.get_data())
-
-		DatosPartida.debug()
-	get_tree().change_scene_to_file("res://juego/main.tscn")
