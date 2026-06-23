@@ -48,11 +48,13 @@ func _on_agregar_jugador_pressed() -> void:
 		return
 	var card = player_card.instantiate()
 	hbox.add_child(card)
+	AudioManager.agregar_jugador.play()
 	_actualizar_labels()
 	_actualizar_botones_eliminar()
 	_actualizar_boton_agregar()
 
 func _on_volver_pressed() -> void:
+	AudioManager.select.play()
 	get_tree().change_scene_to_file("res://Escenas/menu_principal.tscn")
 
 func _on_continuar_pressed() -> void:
