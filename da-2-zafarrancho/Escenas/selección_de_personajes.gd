@@ -56,6 +56,15 @@ func _on_volver_pressed() -> void:
 	get_tree().change_scene_to_file("res://Escenas/menu_principal.tscn")
 
 func _on_continuar_pressed() -> void:
-	DatosPartida.jugadores = hbox.get_child_count()
-	AudioManager.play.play()
+	var cards = hbox.get_children()
+
+	DatosPartida.cantidad_jugadores = cards.size() 
+	DatosPartida.personajes_seleccionados = []
+
+	for i in range(cards.size()):
+		var card = cards[i]
+
+		DatosPartida.personajes_seleccionados.append(card.get_data())
+
+		DatosPartida.debug()
 	get_tree().change_scene_to_file("res://juego/main.tscn")
