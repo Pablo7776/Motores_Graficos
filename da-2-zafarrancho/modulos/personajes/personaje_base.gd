@@ -4,7 +4,8 @@ class_name PersonajeBase
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-@onready var animacion
+var animacion
+@onready var visuales_flipeables: Node2D = $VisualesFlipeables
 @onready var state_machine = $StateMachine
 @onready var dado = $Dado
 @onready var gestor_de_turnos = get_parent().get_node("GestorDeTurnosV2")
@@ -58,15 +59,37 @@ func _on_dado_valor(valor):
 	set_physics_process(true)
 	state_machine.change_state(state_machine.idle_state)
 
+#func asignar_animacion():
+	#"""
+	#if (jugador_id+1)%2 ==0:
+		#animacion = preload("res://Escenas/Personajes/sprite_pj_2.tscn").instantiate()
+	#else:
+		#animacion = preload("res://Escenas/Personajes/sprite_pj_1.tscn").instantiate()
+	#add_child(animacion)
+	#move_child(animacion,0)
+	#"""
+	##animacion = $VisualesFlipeables/SpritePJ1
+	
 func asignar_animacion():
-	if (jugador_id+1)%2 ==0:
-		animacion = preload("res://Escenas/Personajes/sprite_pj_2.tscn").instantiate()
+	var escena_sprite : PackedScene
+	
+	# Decide qué escena cargar dependiendo del jugador_id
+	if (jugador_id + 1) % 2 == 0:
+		escena_sprite = preload("res://Escenas/Personajes/sprite_pj_2.tscn")
 	else:
-		animacion = preload("res://Escenas/Personajes/sprite_pj_1.tscn").instantiate()
-	add_child(animacion)
-	move_child(animacion,0)
-
-
+		escena_sprite = preload("res://Escenas/Personajes/sprite_pj_1.tscn")
+		
+	# Instancia la escena y la guarda en la variable
+	animacion = escena_sprite.instantiate()
+	
+	# Lo añade como hijo específicamente de VisualesFlipeables
+	visuales_flipeables.add_child(animacion)
+	for child in visuales_flipeables.get_children():
+		if child.has_method("play"):
+			animacion = child
+			break
+	
+	
 func play_animation(anim_name):
 	print(animacion)
 	animacion.play(anim_name)
@@ -99,13 +122,9 @@ func _on_health_manager_dead() -> void:
 func _on_hitbox_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body is TileMapLayer:
 		#  Obtenemos la coordenada exacta
-		var posicion_del_hacha = $Hitbox.global_position 
+		var posicion_del_hacha = visuales_flipeables.get_node("Hitbox").global_position
 		var pos_local = body.to_local(posicion_del_hacha)
 		var celda_central = body.local_to_map(pos_local)
 		
-		for x in range(-3, 4):
-			for y in range(-3, 4):
-				var celda_a_borrar = celda_central + Vector2i(x, y)
-				
-				# Borramos la celda limpiamente
-				body.erase_cell(celda_a_borrar)
+		if body.has_method("crear_crater"):
+			body.crear_crater(posicion_del_hacha)

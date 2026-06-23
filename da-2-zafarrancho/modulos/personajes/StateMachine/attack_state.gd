@@ -1,4 +1,5 @@
 extends State
+
 var sonido = preload("res://Escenas/audio_manager.tscn").instantiate()
 
 func enter(player):
@@ -11,7 +12,7 @@ func enter(player):
 
 	print("paso por aquí")
 
-	var hitbox = player.get_node("Hitbox")
+	var hitbox = player.visuales_flipeables.get_node("Hitbox")
 	hitbox.set_direction(player.animacion.flip_h)
 	hitbox.attack()
 

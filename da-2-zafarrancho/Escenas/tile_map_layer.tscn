@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://2eeefer0dkbv" path="res://Recursos/Assets_Visuales/Escenarios/Paredes_y_suelos/piso.png" id="1_11smg"]
 [ext_resource type="Script" uid="uid://q3el8mofox86" path="res://modulos/escenario/tile_map_layer.gd" id="2_3jbof"]
+[ext_resource type="PackedScene" uid="uid://skkumtb1vq7b" path="res://Escenas/terreno_particulas.tscn" id="3_3jbof"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3510d"]
 texture = ExtResource("1_11smg")
@@ -1294,3 +1295,4 @@ sources/0 = SubResource("TileSetAtlasSource_3510d")
 tile_set = SubResource("TileSet_vqsdg")
 script = ExtResource("2_3jbof")
 ancho_mundo = 430
+escena_particulas = ExtResource("3_3jbof")

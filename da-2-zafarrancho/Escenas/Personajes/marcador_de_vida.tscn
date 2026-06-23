@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cp6rtth0lb55h" path="res://Recursos/Assets_Visuales/UI/Cursor_apuntar.png" id="1_u8ob3"]
 
 [node name="marcador_de_vida" type="TextureRect" unique_id=526504006]
-modulate = Color(0, 0.7845677, 0, 0.915)
 z_index = 3000
 z_as_relative = false
 offset_left = -9.75
