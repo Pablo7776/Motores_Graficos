@@ -5,7 +5,7 @@ class_name Selector
 @onready var prev: Button = $prev
 @onready var nombre_del_heroe: Label = $"Nombre del Heroe"
 
-var heroes = ["Barbaro", "Mago","Cazador"]
+var heroes = ["Cavador", "Castigador"]
 var indice := 0
 
 func _ready():
