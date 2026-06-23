@@ -22,8 +22,7 @@ func _on_gestor_cambiar_turno(pj):
 	if pj_actual != null:
 		if pj_actual.dado.dado_valor.is_connected(_on_dado_valor):
 			pj_actual.dado.dado_valor.disconnect(_on_dado_valor)
-		if pj_actual.dado.dados_girando.is_connected(_on_dado_girando):
-			pj_actual.dado.dados_girando.disconnect(_on_dado_girando)
+
 	# Cambiar personaje actual
 	pj_actual = pj
 	# Conectar nuevo dado
