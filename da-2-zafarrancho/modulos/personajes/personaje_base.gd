@@ -4,7 +4,7 @@ class_name PersonajeBase
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-@onready var animacion
+var animacion
 @onready var visuales_flipeables: Node2D = $VisualesFlipeables
 @onready var state_machine = $StateMachine
 @onready var dado = $Dado
@@ -59,17 +59,31 @@ func _on_dado_valor(valor):
 	set_physics_process(true)
 	state_machine.change_state(state_machine.idle_state)
 
-func asignar_animacion():
-	"""
-	if (jugador_id+1)%2 ==0:
-		animacion = preload("res://Escenas/Personajes/sprite_pj_2.tscn").instantiate()
-	else:
-		animacion = preload("res://Escenas/Personajes/sprite_pj_1.tscn").instantiate()
-	add_child(animacion)
-	move_child(animacion,0)
-	"""
-	#animacion = $VisualesFlipeables/SpritePJ1
+#func asignar_animacion():
+	#"""
+	#if (jugador_id+1)%2 ==0:
+		#animacion = preload("res://Escenas/Personajes/sprite_pj_2.tscn").instantiate()
+	#else:
+		#animacion = preload("res://Escenas/Personajes/sprite_pj_1.tscn").instantiate()
+	#add_child(animacion)
+	#move_child(animacion,0)
+	#"""
+	##animacion = $VisualesFlipeables/SpritePJ1
 	
+func asignar_animacion():
+	var escena_sprite : PackedScene
+	
+	# Decide qué escena cargar dependiendo del jugador_id
+	if (jugador_id + 1) % 2 == 0:
+		escena_sprite = preload("res://Escenas/Personajes/sprite_pj_2.tscn")
+	else:
+		escena_sprite = preload("res://Escenas/Personajes/sprite_pj_1.tscn")
+		
+	# Instancia la escena y la guarda en la variable
+	animacion = escena_sprite.instantiate()
+	
+	# Lo añade como hijo específicamente de VisualesFlipeables
+	visuales_flipeables.add_child(animacion)
 	for child in visuales_flipeables.get_children():
 		if child.has_method("play"):
 			animacion = child

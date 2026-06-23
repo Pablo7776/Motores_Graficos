@@ -18,25 +18,31 @@ func _ready() -> void:
 	turno_de.connect(hud._on_gestor_cambiar_turno) #como llama a la función en el hud se puede mejorar para que sea mas claro
 
 #acá se crean los personajes, las listas de jugadores y de equipos, a partir de los datos del menú de partida
-func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
+func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes, clases_elegidas: Array = []) -> void:
 	lista_jugadores.clear()
 	equipos.clear()
 	jugadores = cant_jugadores
 	personajes = cant_personajes
 	turno_personaje = 0
+	await get_tree().create_timer(0.5).timeout
+	var espacio_fisico = camara.get_world_2d().direct_space_state
 	#var personaje = preload("res://modulos/personajes/personaje_base.tscn")
 	for i in range(jugadores):
 		equipos[i] = {"turno_propio": turno_personaje, "personajes_propios":[]}
 		for j in range(personajes):
+			var tipo_de_clase = "base" 
+			if clases_elegidas.size() > 0:
+				tipo_de_clase = clases_elegidas[i][j]
 			#var nuevo_pj = personaje.instantiate()
 			#var nuevo_pj = spawner.crear_personaje("base")
-			var nuevo_pj = spawner.crear_personaje("cazador", i, j)
+			var nuevo_pj = spawner.crear_personaje(tipo_de_clase, i, j, espacio_fisico)
 			#nuevo_pj.position = Vector2(i * 200, j * 100)
 			#nuevo_pj.jugador_id = i
 			#nuevo_pj.indice_en_equipo = j
+			get_parent().add_child(nuevo_pj)			
 			turno_de.connect(nuevo_pj._on_cambiar_turno) #como llama a la función en el pj se puede mejorar para que sea mas claro
 			nuevo_pj.mori.connect(_on_pj_mori)
-			get_parent().add_child(nuevo_pj)
+			spawner.ubicar_en_suelo(nuevo_pj, espacio_fisico)
 			equipos[i]["personajes_propios"].append(nuevo_pj)
 	primer_turno()
 
