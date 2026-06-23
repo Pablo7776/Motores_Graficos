@@ -6,8 +6,10 @@ var lista_jugadores := [] #lista de los jugadores activos
 var equipos := {}
 var turno_jugador:int #contador de cuál jugador va
 var turno_personaje:int #contador de cuál pj va del jugador
+var ganador:int
 signal turno_de(node)
 signal jugador_vencido(n:int)
+signal victoria(ganador)
 @onready var hud = owner.find_child("HUD")
 @export var camara: Camera2D
 @onready var spawner = get_parent().get_node("SpawnerPersonajes")
@@ -22,6 +24,7 @@ func _ready() -> void:
 func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 	lista_jugadores.clear()
 	equipos.clear()
+	ganador = 0
 	jugadores = cant_jugadores
 	personajes = cant_personajes
 	turno_personaje = 0
@@ -76,3 +79,14 @@ func _on_pj_mori(pj_muerto):
 	if equipos[jugador_id]["personajes_propios"].size() == 0:
 		jugador_vencido.emit(jugador_id+1)
 		print("Se murieron todos los PJ del jugador", jugador_id+1)
+	_comprobar_victoria()
+
+func _comprobar_victoria():
+	var vivos = []
+	for v in range(equipos.size()):
+		if !equipos[v]["personajes_propios"].is_empty():
+			vivos.append(v)
+	if vivos.size() == 1:
+		ganador = vivos[0]+1
+		print("Ganó el jugador", ganador)
+		victoria.emit(ganador)
