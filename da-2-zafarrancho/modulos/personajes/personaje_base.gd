@@ -126,9 +126,5 @@ func _on_hitbox_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index
 		var pos_local = body.to_local(posicion_del_hacha)
 		var celda_central = body.local_to_map(pos_local)
 		
-		for x in range(-3, 4):
-			for y in range(-3, 4):
-				var celda_a_borrar = celda_central + Vector2i(x, y)
-				
-				# Borramos la celda limpiamente
-				body.erase_cell(celda_a_borrar)
+		if body.has_method("crear_crater"):
+			body.crear_crater(posicion_del_hacha)

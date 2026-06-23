@@ -9,6 +9,7 @@ extends TileMapLayer
 
 # VARIABLES DE DESTRUCCIÓN 
 @export var radio_explosion_pixels: float = 48.0
+@export var escena_particulas: PackedScene
 
 var generador_ruido = FastNoiseLite.new()
 
@@ -42,6 +43,7 @@ func crear_crater(posicion_global_explosion: Vector2):
 	var radio_en_celdas = int(radio_explosion_pixels / tamaño_tile)
 	
 	var celdas_modificadas: Array[Vector2i] = []
+	var rompio_algo = false # Bandera para saber si realmente destruimos tierra
 	
 	for x in range(-radio_en_celdas, radio_en_celdas + 1):
 		for y in range(-radio_en_celdas, radio_en_celdas + 1):
@@ -49,5 +51,16 @@ func crear_crater(posicion_global_explosion: Vector2):
 			var distancia = Vector2(celda_centro).distance_to(Vector2(celda_actual))
 			
 			if distancia <= radio_en_celdas:
-				erase_cell(celda_actual)
-				celdas_modificadas.append(celda_actual)
+				# Verificamos si hay un tile antes de borrar para no emitir partículas en el aire
+				if get_cell_source_id(celda_actual) != -1:
+					erase_cell(celda_actual)
+					celdas_modificadas.append(celda_actual)
+					rompio_algo = true
+					
+	# --- NUEVO CÓDIGO DE PARTÍCULAS ---
+	# Solo instanciamos la explosión si hemos cargado la escena y si realmente se rompió terreno
+	if escena_particulas and rompio_algo:
+		var particulas = escena_particulas.instantiate()
+		add_child(particulas)
+		# Aprovechamos la pos_local que ya calculaste al inicio de la función para ubicar las partículas
+		particulas.position = pos_local
