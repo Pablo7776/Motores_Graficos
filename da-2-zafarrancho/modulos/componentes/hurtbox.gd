@@ -25,6 +25,6 @@ func flash_damage():
 	print("flash_damage")
 	player.animacion.modulate = Color.RED
 
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.3).timeout
 
 	player.animacion.modulate = Color.WHITE
