@@ -8,6 +8,7 @@ var turno_jugador:int #contador de cuál jugador va
 var turno_personaje:int #contador de cuál pj va del jugador
 signal turno_de(node)
 signal jugador_vencido(n:int)
+signal partida_terminada(jugador_ganador: int)
 @onready var hud = owner.find_child("HUD")
 @export var camara: Camera2D
 @onready var spawner = get_parent().get_node("SpawnerPersonajes")
@@ -16,7 +17,8 @@ func _ready() -> void:
 # Acá conecta una señal que se envía al apretar "iniciar partida" desde el menú de partida donde se establecen la cantida de jugadores y de personajes por jugador.
 	get_parent().iniciar.connect(_on_menu_de_partida_iniciar)  #✨Armado en Clase
 	turno_de.connect(hud._on_gestor_cambiar_turno) #como llama a la función en el hud se puede mejorar para que sea mas claro
-
+	partida_terminada.connect(_on_partida_terminada)
+	
 #acá se crean los personajes, las listas de jugadores y de equipos, a partir de los datos del menú de partida
 func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes) -> void:
 	lista_jugadores.clear()
@@ -73,12 +75,36 @@ func _on_pj_mori(pj_muerto):
 	equipos[jugador_id]["personajes_propios"].erase(pj_muerto)
 	pj_muerto.queue_free()
 	print("personaje eliminado: ", pj_muerto)
-	siguiente_turno()
+	
 	if equipos[jugador_id]["personajes_propios"].size() == 0:
 		jugador_vencido.emit(jugador_id+1)
 		print("Se murieron todos los PJ del jugador", jugador_id+1)
-		
-		
+		_verificar_fin_de_partida()
+		if _partida_terminada():
+			return 
+	siguiente_turno()
+	
+func _on_partida_terminada(jugador_ganador: int) -> void:
+	DatosPartida.jugador_ganador = jugador_ganador
+	call_deferred("_cambiar_a_victoria")
+
+func _cambiar_a_victoria() -> void:
+	get_tree().change_scene_to_file("res://victoria.tscn")
+
+func _jugadores_con_vida() -> Array:
+	var vivos = []
+	for jugador_id in equipos.keys():
+		if equipos[jugador_id]["personajes_propios"].size() > 0:
+			vivos.append(jugador_id)
+	return vivos
+func _verificar_fin_de_partida() -> void:
+	var vivos = _jugadores_con_vida()
+	if vivos.size() == 1:
+		partida_terminada.emit(vivos[0])
+
+func _partida_terminada() -> bool:
+	return _jugadores_con_vida().size() <= 1
+
 func obtener_posicion_suelo(intentos: int = 0) -> Vector2:
 	# Si después de 50 intentos no encuentra piso, lo tira en el medio por seguridad
 	if intentos > 50:
