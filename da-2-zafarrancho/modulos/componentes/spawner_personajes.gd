@@ -3,8 +3,8 @@ class_name SpawnerPersonajes
 
 
 @export var personaje_base : PackedScene
-@export var personaje_arquero : PackedScene
-@export var personaje_otro : PackedScene
+@export var personaje_cavador : PackedScene
+@export var personaje_castigador : PackedScene
 
 func crear_personaje(tipo:String, jugador_id:int, indice:int, espacio: PhysicsDirectSpaceState2D):
 	var escena : PackedScene
@@ -12,10 +12,10 @@ func crear_personaje(tipo:String, jugador_id:int, indice:int, espacio: PhysicsDi
 	match tipo:
 		"base":
 			escena = personaje_base
-		"arquero":
-			escena = personaje_arquero
-		"otro":
-			escena = personaje_otro
+		"cavador":
+			escena = personaje_cavador
+		"castigador":
+			escena = personaje_castigador
 
 	var pj = escena.instantiate()
 	

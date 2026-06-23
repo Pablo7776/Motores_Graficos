@@ -71,6 +71,7 @@ func _on_dado_valor(valor):
 	##animacion = $VisualesFlipeables/SpritePJ1
 	
 func asignar_animacion():
+
 	var escena_sprite : PackedScene
 	
 	# Decide qué escena cargar dependiendo del jugador_id

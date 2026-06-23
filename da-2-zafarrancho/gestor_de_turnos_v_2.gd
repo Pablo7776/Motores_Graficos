@@ -34,7 +34,7 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes, clases_elegida
 	for i in range(jugadores):
 		equipos[i] = {"turno_propio": turno_personaje, "personajes_propios":[]}
 		for j in range(personajes):
-			var tipo_de_clase = "base" 
+			var tipo_de_clase = "cavador" 
 			if clases_elegidas.size() > 0:
 				tipo_de_clase = clases_elegidas[i][j]
 			#var nuevo_pj = personaje.instantiate()
