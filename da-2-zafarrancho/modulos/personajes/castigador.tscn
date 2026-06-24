@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cyg0oj2jvgiw4"]
+
+[ext_resource type="PackedScene" uid="uid://canl8j7cm4psw" path="res://modulos/personajes/personaje_base.tscn" id="1_df3hh"]
+[ext_resource type="Script" uid="uid://ueve3gy5xa65" path="res://modulos/personajes/castigador.gd" id="2_j8n18"]
+
+[node name="PersonajeBase" unique_id=1880926583 instance=ExtResource("1_df3hh")]
+script = ExtResource("2_j8n18")

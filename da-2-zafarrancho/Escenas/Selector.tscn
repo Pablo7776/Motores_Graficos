@@ -16,7 +16,7 @@ text = "<"
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 17
-text = "Bárbaro"
+text = "Cavador"
 
 [node name="next" type="Button" parent="." unique_id=1929381826]
 layout_mode = 2

@@ -20,6 +20,8 @@ signal mori(personaje)
 func _ready():
 	#var audio = preload("res://Escenas/audio_manager.tscn").instantiate()
 	asignar_animacion()
+	setear_vida_max()
+	setear_tiempo()
 	state_machine.init(self)
 	dado.dado_valor.connect(_on_dado_valor)
 	$ContadorDeVida.actualizar_barra()
@@ -71,6 +73,8 @@ func _on_dado_valor(valor):
 	##animacion = $VisualesFlipeables/SpritePJ1
 	
 func asignar_animacion():
+	pass
+"""
 	var escena_sprite : PackedScene
 	
 	# Decide qué escena cargar dependiendo del jugador_id
@@ -87,9 +91,12 @@ func asignar_animacion():
 	for child in visuales_flipeables.get_children():
 		if child.has_method("play"):
 			animacion = child
-			break
-	
-	
+			break"""
+func setear_vida_max():
+	pass
+func setear_tiempo():
+	pass
+
 func play_animation(anim_name):
 	print(animacion)
 	animacion.play(anim_name)

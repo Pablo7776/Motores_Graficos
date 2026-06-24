@@ -4,7 +4,7 @@ extends Node2D
 signal iniciar 
 
 func _ready() -> void:
-	iniciar.emit(DatosPartida.jugadores, DatosPartida.personajes)  #✨Armado en Clase
+	iniciar.emit(DatosPartida.cantidad_jugadores, DatosPartida.personajes_por_jugador, DatosPartida.personajes_seleccionados)  #✨Armado en Clase
 
 
 func _on_gestor_de_turnos_v_2_victoria(ganador: Variant) -> void:
