@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://brsp54q2bvlyg" path="res://Escenas/MenuScripts/menu_principal.gd" id="1_ft1ng"]
 [ext_resource type="Texture2D" uid="uid://bn0hn04dvepsj" path="res://Recursos/MainMenu/da2_menu_fondo.png" id="2_qncgo"]
 [ext_resource type="FontFile" uid="uid://cla3yyxnq4amh" path="res://Recursos/Tipografias/!SketchyTimes-b.ttf" id="3_qncgo"]
+[ext_resource type="PackedScene" uid="uid://bsjmi263fgpr1" path="res://creditos.tscn" id="4_15krf"]
 [ext_resource type="Texture2D" uid="uid://cp6rtth0lb55h" path="res://Recursos/Assets_Visuales/UI/Cursor_apuntar.png" id="4_yo4kt"]
 [ext_resource type="Texture2D" uid="uid://b67srk2envn3y" path="res://Recursos/Assets_Visuales/UI/Cursor_apuntar_activo.png" id="5_15krf"]
 [ext_resource type="Texture2D" uid="uid://upkua85pcicu" path="res://Recursos/Assets_Visuales/UI/Cursor_apuntar_inactivo.png" id="6_j2d8q"]
@@ -105,6 +106,26 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_x7udj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bj1uy")
 text = "SALIR"
+
+[node name="creditos" type="Button" parent="MainButtons" unique_id=1373586016]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qncgo")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_x7udj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bj1uy")
+text = "CRÉDITOS"
+
+[node name="Control" parent="." unique_id=376071804 instance=ExtResource("4_15krf")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="Opciones" type="Panel" parent="." unique_id=1199528575]
 visible = false
@@ -306,6 +327,8 @@ text = "VOLVER"
 [connection signal="pressed" from="MainButtons/iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="MainButtons/ajustes" to="." method="_on_ajustes_pressed"]
 [connection signal="pressed" from="MainButtons/salir" to="." method="_on_salir_pressed"]
+[connection signal="mouse_entered" from="MainButtons/creditos" to="." method="_on_creditos_mouse_entered"]
+[connection signal="mouse_exited" from="MainButtons/creditos" to="." method="_on_creditos_mouse_exited"]
 [connection signal="value_changed" from="Opciones/CenterContainer/VBox/RowMaster/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Opciones/CenterContainer/VBox/RowMusic/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Opciones/CenterContainer/VBox/RowSFX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

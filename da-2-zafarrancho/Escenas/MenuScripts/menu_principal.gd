@@ -11,7 +11,7 @@ signal iniciar
 @onready var label_master_val: Label         = $Opciones/CenterContainer/VBox/RowMaster/LabelMasterVal
 @onready var label_music_val : Label         = $Opciones/CenterContainer/VBox/RowMusic/LabelMusicVal
 @onready var label_sfx_val   : Label         = $Opciones/CenterContainer/VBox/RowSFX/LabelSFXVal
-
+@onready var creditos: Control = $Control
 
 func _ready():
 	main_buttons.visible = true
@@ -111,3 +111,10 @@ func _load_settings():
 
 	if fullscreen:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+
+func _on_creditos_mouse_entered() -> void:
+	creditos.visible = true
+
+func _on_creditos_mouse_exited() -> void:
+	creditos.visible = false
