@@ -8,6 +8,8 @@ var cara := 1
 var girando := false
 var activo := false
 var ya_tirado := false
+@export var tiempo_min:int
+@export var tiempo_max:int
 
 @onready var label = $Label
 
@@ -45,7 +47,7 @@ func tirar_dado():
 
 	for i in vueltas:
 
-		cara = randi_range(1, 20)
+		cara = randi_range(tiempo_min, tiempo_max)
 
 		actualizar_visual()
 

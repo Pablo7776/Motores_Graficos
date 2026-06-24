@@ -8,7 +8,7 @@ class_name SpawnerPersonajes
 
 func crear_personaje(tipo:String, jugador_id:int, indice:int, espacio: PhysicsDirectSpaceState2D):
 	var escena : PackedScene
-	
+	tipo=tipo.to_lower()
 	match tipo:
 		"base":
 			escena = personaje_base
@@ -16,7 +16,6 @@ func crear_personaje(tipo:String, jugador_id:int, indice:int, espacio: PhysicsDi
 			escena = personaje_cavador
 		"castigador":
 			escena = personaje_castigador
-
 	var pj = escena.instantiate()
 	
 	pj.jugador_id = jugador_id

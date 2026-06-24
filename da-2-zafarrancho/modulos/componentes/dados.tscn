@@ -5,6 +5,8 @@
 
 [node name="dado" type="Node2D" unique_id=1716550576]
 script = ExtResource("1_v4hh3")
+tiempo_min = 1
+tiempo_max = 20
 
 [node name="Label" type="Label" parent="." unique_id=448460288]
 offset_right = 40.0

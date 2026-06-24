@@ -11,3 +11,7 @@ func asignar_animacion():
 		if child.has_method("play"):
 			animacion = child
 			break
+
+func setear_tiempo():
+	$Dado.tiempo_min=5
+	$Dado.tiempo_max=20
