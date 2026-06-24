@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://jigvumupmit3"]
+
+[ext_resource type="PackedScene" uid="uid://canl8j7cm4psw" path="res://modulos/personajes/personaje_base.tscn" id="1_ss3fh"]
+[ext_resource type="Script" uid="uid://cdevpg5oaqytf" path="res://modulos/personajes/cavador.gd" id="2_1ay5c"]
+
+[node name="PersonajeBase" unique_id=1880926583 instance=ExtResource("1_ss3fh")]
+script = ExtResource("2_1ay5c")

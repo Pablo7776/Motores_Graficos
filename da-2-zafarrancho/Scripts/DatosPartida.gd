@@ -1,5 +1,19 @@
 extends Node
 
-var jugadores := 0
-var personajes := 0
-var jugador_ganador := -1
+var cantidad_jugadores: int = 0
+var personajes_por_jugador: int = 0
+var personajes_seleccionados: Array = []
+
+func _ready():
+	debug()
+
+func debug():
+	print("\n========== DATOS PARTIDA ==========")
+
+	print("Cantidad jugadores:", cantidad_jugadores)
+	print("Personajes por jugador:", personajes_por_jugador)
+
+	print("personajes_seleccionados:")
+	print(JSON.stringify(personajes_seleccionados, "\t"))
+
+	print("===================================\n")

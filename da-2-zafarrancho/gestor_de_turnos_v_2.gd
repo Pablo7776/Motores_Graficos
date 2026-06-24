@@ -27,15 +27,17 @@ func _on_menu_de_partida_iniciar(cant_jugadores, cant_personajes, clases_elegida
 	jugadores = cant_jugadores
 	personajes = cant_personajes
 	turno_personaje = 0
+	var lista_clases_actuales = clases_elegidas
 	await get_tree().create_timer(0.5).timeout
 	var espacio_fisico = camara.get_world_2d().direct_space_state
 	#var personaje = preload("res://modulos/personajes/personaje_base.tscn")
 	for i in range(jugadores):
 		equipos[i] = {"turno_propio": turno_personaje, "personajes_propios":[]}
 		for j in range(personajes):
-			var tipo_de_clase = "base" 
-			if clases_elegidas.size() > 0:
-				tipo_de_clase = clases_elegidas[i][j]
+			var tipo_de_clase:String
+			if lista_clases_actuales.size() > 0:
+				var n_personaje = "personaje" + str(j+1)
+				tipo_de_clase = lista_clases_actuales[i][n_personaje]
 			#var nuevo_pj = personaje.instantiate()
 			#var nuevo_pj = spawner.crear_personaje("base")
 			var nuevo_pj = spawner.crear_personaje(tipo_de_clase, i, j, espacio_fisico)

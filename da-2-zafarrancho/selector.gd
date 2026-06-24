@@ -1,10 +1,11 @@
 extends HBoxContainer
+class_name Selector
 
 @onready var next: Button = $next
 @onready var prev: Button = $prev
 @onready var nombre_del_heroe: Label = $"Nombre del Heroe"
 
-var heroes = ["Barbaro", "Mago","Cazador"]
+var heroes = ["Cavador", "Castigador"]
 var indice := 0
 
 func _ready():
@@ -22,3 +23,9 @@ func _anterior():
 
 func actualizar_texto():
 	nombre_del_heroe.text = heroes[indice]
+	
+func obtener_personaje() -> String:
+	return heroes[indice]
+
+func get_personaje() -> String:
+	return heroes[indice]
