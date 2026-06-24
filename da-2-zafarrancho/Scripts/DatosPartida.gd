@@ -3,6 +3,7 @@ extends Node
 var cantidad_jugadores: int = 0
 var personajes_por_jugador: int = 0
 var personajes_seleccionados: Array = []
+var jugador_ganador := -1
 
 func _ready():
 	debug()

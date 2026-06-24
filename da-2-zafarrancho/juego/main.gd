@@ -4,7 +4,7 @@ extends Node2D
 signal iniciar 
 
 func _ready() -> void:
-
+	iniciar.emit(DatosPartida.cantidad_jugadores, DatosPartida.personajes_por_jugador, DatosPartida.personajes_seleccionados)  #✨Armado en Clase
 
 
 func _on_gestor_de_turnos_v_2_victoria(ganador: Variant) -> void:
@@ -12,6 +12,3 @@ func _on_gestor_de_turnos_v_2_victoria(ganador: Variant) -> void:
 	DatosPartida.jugador_ganador = ganador
 	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://victoria.tscn")
-
-
-iniciar.emit(DatosPartida.cantidad_jugadores, DatosPartida.personajes_por_jugador, DatosPartida.personajes_seleccionados)  #✨Armado en Clase
