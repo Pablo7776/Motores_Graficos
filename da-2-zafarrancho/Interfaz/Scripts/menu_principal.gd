@@ -26,7 +26,11 @@ func _on_iniciar_pressed() -> void:
 	#DatosPartida.personajes = 4
 	#get_tree().change_scene_to_file("res://juego/main.tscn")
 	#iniciar.emit()
+
 	get_tree().change_scene_to_file("res://Interfaz/Escenas/Selección_De_Personajes.tscn")
+
+	AudioManager.select.play() #Quizas variarle el pitch con el editor de aca
+
 
 
 func _on_ajustes_pressed() -> void:
