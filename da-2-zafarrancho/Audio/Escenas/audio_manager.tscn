@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bo8ff2bm72h8s"]
+
+[ext_resource type="Script" uid="uid://bvgnv4sv880ht" path="res://Audio/Scripts/audio_manager.gd" id="1_bduxh"]
+[ext_resource type="AudioStream" uid="uid://djl2ieqqnx1hd" path="res://Recursos/Audios/PJ/Hacha 1.mp3" id="1_fswfj"]
+[ext_resource type="AudioStream" uid="uid://dskfamwh5mqu0" path="res://Recursos/Audios/PJ/Hacha 2.mp3" id="2_bduxh"]
+[ext_resource type="AudioStream" uid="uid://3jsxg8ld6587" path="res://Recursos/Audios/PJ/Hacha 3.mp3" id="3_c5jke"]
+[ext_resource type="AudioStream" uid="uid://0xyp47jnpp8w" path="res://Recursos/Audios/PJ/Tirada 1.mp3" id="4_x63eu"]
+[ext_resource type="AudioStream" uid="uid://bnvfpfur50h1h" path="res://Recursos/Audios/PJ/Tirada 2.mp3" id="5_2obtn"]
+[ext_resource type="AudioStream" uid="uid://ctdagv5ry7kqu" path="res://Recursos/Audios/PJ/moverce.mp3" id="6_7h2p7"]
+[ext_resource type="AudioStream" uid="uid://cqhh841lvcspv" path="res://Recursos/Audios/UI/select.wav" id="8_x63eu"]
+[ext_resource type="AudioStream" uid="uid://byq16vtqb2bf1" path="res://Recursos/Audios/UI/playy.wav" id="9_x63eu"]
+[ext_resource type="AudioStream" uid="uid://b8wfeelo0i4hf" path="res://Recursos/Audios/UI/win.wav" id="10_2obtn"]
+[ext_resource type="AudioStream" uid="uid://bx0ggfdr1qdl1" path="res://Recursos/Audios/UI/agradecer_jugador.wav" id="11_7h2p7"]
+
+[node name="AudioManager" type="Node" unique_id=780159011]
+script = ExtResource("1_bduxh")
+
+[node name="Mov" type="AudioStreamPlayer2D" parent="." unique_id=686210422]
+stream = ExtResource("6_7h2p7")
+volume_db = 10.0
+
+[node name="HachaSouds" type="Node" parent="." unique_id=1597468443]
+
+[node name="Hacha_Attack_01" type="AudioStreamPlayer2D" parent="HachaSouds" unique_id=465277922]
+stream = ExtResource("1_fswfj")
+volume_db = 8.0
+
+[node name="Hacha_Attack_02" type="AudioStreamPlayer2D" parent="HachaSouds" unique_id=1140938833]
+stream = ExtResource("2_bduxh")
+volume_db = 8.0
+
+[node name="Hacha_Attack_03" type="AudioStreamPlayer2D" parent="HachaSouds" unique_id=907188980]
+stream = ExtResource("3_c5jke")
+volume_db = 8.0
+
+[node name="Salto" type="Node" parent="." unique_id=527065243]
+
+[node name="Dado1" type="AudioStreamPlayer2D" parent="Salto" unique_id=402484799]
+stream = ExtResource("4_x63eu")
+volume_db = 8.0
+
+[node name="Dado2" type="AudioStreamPlayer2D" parent="Salto" unique_id=1495372991]
+stream = ExtResource("5_2obtn")
+volume_db = 8.0
+
+[node name="UI" type="Node" parent="." unique_id=1884614259]
+
+[node name="Select" type="AudioStreamPlayer" parent="UI" unique_id=700458989]
+stream = ExtResource("8_x63eu")
+
+[node name="Play" type="AudioStreamPlayer" parent="UI" unique_id=988974846]
+stream = ExtResource("9_x63eu")
+
+[node name="Win" type="AudioStreamPlayer" parent="UI" unique_id=1332734286]
+stream = ExtResource("10_2obtn")
+
+[node name="agregar_jugador" type="AudioStreamPlayer" parent="UI" unique_id=2011246768]
+stream = ExtResource("11_7h2p7")

@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cv2tyj6uawkb4"]
-
-[ext_resource type="Script" uid="uid://bkpqset04oo5t" path="res://contador_de_vida.gd" id="1_0pc2c"]
-
-[node name="contador_de_vida" type="Node2D" unique_id=787551954]
-script = ExtResource("1_0pc2c")

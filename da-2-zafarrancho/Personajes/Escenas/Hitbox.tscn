@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://6f6h65cunh3q"]
+
+[ext_resource type="Script" uid="uid://dygumxxokh8c5" path="res://Personajes/Scripts/hitbox.gd" id="1_y0wxo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y0wxo"]
+radius = 43.004543
+
+[node name="Hitbox" type="Area2D" unique_id=1959214690]
+position = Vector2(80, 1)
+script = ExtResource("1_y0wxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392509929]
+position = Vector2(0, -4.625)
+shape = SubResource("CircleShape2D_y0wxo")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

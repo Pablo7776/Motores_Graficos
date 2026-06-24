@@ -1,0 +1,65 @@
+extends Node2D
+class_name Dado
+
+signal dado_valor(valor)
+signal dados_girando()
+
+var cara := 1
+var girando := false
+var activo := false
+var ya_tirado := false
+@export var tiempo_min:int
+@export var tiempo_max:int
+
+@onready var label = $Label
+
+
+func _ready():
+
+	randomize()
+
+	actualizar_visual()
+
+
+func _input(event):
+
+	# Si no es mi turno, ignoro input
+	if not activo:
+		return
+	if ya_tirado:
+		return
+
+	if event is InputEventMouseButton:
+
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP \
+		or event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			if not girando:
+				ya_tirado = true
+				tirar_dado()
+
+
+func tirar_dado():
+
+	girando = true
+	dados_girando.emit()
+	# Cantidad de cambios visuales antes de parar
+	var vueltas = randi_range(10, 20)
+
+	for i in vueltas:
+
+		cara = randi_range(tiempo_min, tiempo_max)
+
+		actualizar_visual()
+
+		await get_tree().create_timer(0.07).timeout
+
+	dado_valor.emit(cara)
+
+	girando = false
+
+	print("Resultado final: ", cara)
+
+
+func actualizar_visual():
+
+	label.text = str(cara)
