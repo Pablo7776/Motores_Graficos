@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://2ttgvq48wkkb"]
-
-[ext_resource type="PackedScene" uid="uid://canl8j7cm4psw" path="res://modulos/personajes/personaje_base.tscn" id="1_v1lea"]
-[ext_resource type="PackedScene" uid="uid://b7wgqnc3y8xvd" path="res://Escenas/Personajes/sprite_pj_2.tscn" id="2_4fma3"]
-
-[node name="PersonajeBase" unique_id=1880926583 instance=ExtResource("1_v1lea")]
-
-[node name="SpritePJ2" parent="VisualesFlipeables" parent_id_path=PackedInt32Array(416265463) index="1" unique_id=1616530956 instance=ExtResource("2_4fma3")]
